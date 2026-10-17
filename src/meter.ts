@@ -15,6 +15,19 @@ export const RATE_CARDS: Record<string, RateCard> = {
     listOutMicrosPerTok: 20,  // first-party list price, Opus 5.5 output (display only)
     minChargeCents: 50,       // below this the hold is cancelled, never captured
   },
+  // rc2 = rc1 × 2.4 (one factor for all three posted prices), calibrated on dev VM #1 at 23:30 WAT:
+  // honest 3/3 accepted at 32.1, 17.0 and 22.4 s metered (median $1.37 at rc2); the live runaway's reservation
+  // check refuses its next call at about 64 s of work. Frozen before recorded run 1.
+  rc2: {
+    version: "rc2",
+    vmMicrosPerSec: 48_000,   // $0.048 per sandbox-second
+    inMicrosPerTok: 36,       // $36 per million input tokens
+    outMicrosPerTok: 180,     // $180 per million output tokens
+    infraMicrosPerSec: 13.3,
+    listInMicrosPerTok: 4,
+    listOutMicrosPerTok: 20,
+    minChargeCents: 50,
+  },
 };
 
 // Scales the three posted prices by k; the sandbox rate by vmK when given (DESIGN 9.3 step 3: "raise only

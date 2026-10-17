@@ -1,0 +1,11 @@
+{
+  "featured": "f73f22c3",
+  "runs": [
+    {
+      "runId": "f73f22c3",
+      "label": "Recorded run 1 · 15:36 PT · real sandboxes · real Stripe-sandbox PaymentIntents",
+      "mode": "fuse",
+      "startedAt": 1792276588701
+    }
+  ]
+}

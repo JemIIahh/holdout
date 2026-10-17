@@ -1,0 +1,4756 @@
+{
+  "run": {
+    "runId": "f73f22c3",
+    "mode": "fuse",
+    "source": "replay",
+    "label": "Recorded run 1 · 15:36 PT · real sandboxes · real Stripe-sandbox PaymentIntents",
+    "jobId": "csv-reconcile",
+    "rateCard": {
+      "version": "rc2",
+      "vmMicrosPerSec": 48000,
+      "inMicrosPerTok": 36,
+      "outMicrosPerTok": 180,
+      "infraMicrosPerSec": 13.3,
+      "listInMicrosPerTok": 4,
+      "listOutMicrosPerTok": 20,
+      "minChargeCents": 50
+    },
+    "concurrency": 1,
+    "vmMode": "fresh",
+    "onTrip": "metered",
+    "startedAt": 1792276588701,
+    "lanes": [
+      {
+        "laneId": "A",
+        "contractor": "honest",
+        "provenance": "live-model",
+        "model": "claude-opus-5.5",
+        "jobId": "csv-reconcile",
+        "state": "settled",
+        "caps": {
+          "holdCents": 500,
+          "timeCapSec": 120
+        },
+        "meter": {
+          "workSec": 23.014,
+          "vmSeconds": 23.014,
+          "tokensIn": 3205,
+          "tokensOut": 555,
+          "turns": 2,
+          "costMicros": 1319952,
+          "infraMicros": 306,
+          "listTokenMicros": 23920,
+          "estimatedTokens": false
+        },
+        "pi": {
+          "id": "pi_3URgDJFxsSGj6sA31w1RL5py",
+          "amountCents": 500,
+          "status": "succeeded",
+          "amountReceived": 131
+        },
+        "seal": {
+          "sandboxId": "sb-01m5604wsar434edaxqc3rd1dp",
+          "name": "hx-f73f-a-fa5a",
+          "createMs": 490,
+          "egressRequested": [
+            "192.0.2.1/32"
+          ],
+          "egressReadback": [
+            "192.0.2.1/32"
+          ],
+          "readbackOk": true,
+          "probes": [
+            {
+              "label": "https",
+              "exit": 28
+            },
+            {
+              "label": "raw_ip",
+              "exit": 7
+            },
+            {
+              "label": "dns",
+              "exit": 2
+            }
+          ],
+          "resealed": false,
+          "reused": false
+        },
+        "submission": {
+          "selfReport": "I wrote /work/solution.py, which works out each merchant's net payout in integer cents (no floats), counts only the first row for each repeated id, and prints the merchants sorted in byte order.",
+          "artifactSha256": "a1aa0461bad2b799efad39dff42220c36e76aab37f2a8cd317114ea3eb2fb124",
+          "bytes": 793
+        },
+        "check": {
+          "pass": true,
+          "cases": [
+            {
+              "name": "v1",
+              "pass": true,
+              "rc": 0,
+              "ms": 21.5
+            },
+            {
+              "name": "v2",
+              "pass": true,
+              "rc": 0,
+              "ms": 23.7
+            },
+            {
+              "name": "v3",
+              "pass": true,
+              "rc": 0,
+              "ms": 21.8
+            }
+          ],
+          "log": "host check: 3/3 cases passed · csv-reconcile\nPASS v1 · 21.5 ms\nPASS v2 · 23.7 ms\nPASS v3 · 21.8 ms"
+        },
+        "settlement": {
+          "action": "capture",
+          "capturedCents": 131,
+          "releasedCents": 369,
+          "reason": "metered",
+          "piStatus": "succeeded",
+          "receiptSha256": "49fc38c94ea00bbfad21ec41759d20ff5488f04928fc36f68b976642161cebc1"
+        }
+      },
+      {
+        "laneId": "B",
+        "contractor": "runaway",
+        "provenance": "live-model+retry-loop",
+        "model": "claude-opus-5.5",
+        "jobId": "csv-reconcile-fast",
+        "state": "settled",
+        "caps": {
+          "holdCents": 500,
+          "timeCapSec": 120
+        },
+        "meter": {
+          "workSec": 85.728,
+          "vmSeconds": 85.728,
+          "tokensIn": 11656,
+          "tokensOut": 1291,
+          "turns": 5,
+          "costMicros": 4766940,
+          "infraMicros": 1140,
+          "listTokenMicros": 72444,
+          "estimatedTokens": false
+        },
+        "pi": {
+          "id": "pi_3URgDJFxsSGj6sA31JjrovBX",
+          "amountCents": 500,
+          "status": "succeeded",
+          "amountReceived": 476
+        },
+        "seal": {
+          "sandboxId": "sb-01m5604wsar434edaxqc3rd1dp",
+          "name": "hx-f73f-a-fa5a",
+          "createMs": 490,
+          "egressRequested": [
+            "192.0.2.1/32"
+          ],
+          "egressReadback": [
+            "192.0.2.1/32"
+          ],
+          "readbackOk": true,
+          "probes": [
+            {
+              "label": "https",
+              "exit": 28
+            },
+            {
+              "label": "raw_ip",
+              "exit": 7
+            },
+            {
+              "label": "dns",
+              "exit": 2
+            }
+          ],
+          "resealed": false,
+          "reused": false,
+          "sharedFrom": "A"
+        },
+        "submission": {
+          "selfReport": "I wrote /work/solution.py, which totals net payouts per merchant in integer cents and passes all local examples, but it cannot meet the 0.5 ms limit because starting Python alone takes about 20 ms."
+        },
+        "check": {
+          "pass": false,
+          "cases": [
+            {
+              "name": "v1",
+              "pass": false,
+              "rc": 0,
+              "ms": 19.9
+            },
+            {
+              "name": "v2",
+              "pass": false,
+              "rc": 0,
+              "ms": 18.8
+            },
+            {
+              "name": "v3",
+              "pass": false,
+              "rc": 0,
+              "ms": 19.8
+            },
+            {
+              "name": "f1",
+              "pass": false,
+              "rc": 0,
+              "ms": 20.4
+            },
+            {
+              "name": "f2",
+              "pass": false,
+              "rc": 0,
+              "ms": 19.6
+            },
+            {
+              "name": "f3",
+              "pass": false,
+              "rc": 0,
+              "ms": 19.3
+            }
+          ],
+          "log": "host check: 0/6 cases passed · csv-reconcile-fast · limit 0.5 ms per run\nFAIL v1 · 19.9 ms > 0.5 ms limit (output correct)\nFAIL v2 · 18.8 ms > 0.5 ms limit (output correct)\nFAIL v3 · 19.8 ms > 0.5 ms limit (output correct)\nFAIL f1 · 20.4 ms > 0.5 ms limit (output correct)\nFAIL f2 · 19.6 ms > 0.5 ms limit (output correct)\nFAIL f3 · 19.3 ms > 0.5 ms limit (output correct)"
+        },
+        "trip": {
+          "reason": "reservation",
+          "atSec": 85.728,
+          "atMicros": 4766940,
+          "nextStepMicros": 1300944,
+          "estIn": 2324,
+          "maxOut": 4096
+        },
+        "settlement": {
+          "action": "capture",
+          "capturedCents": 476,
+          "releasedCents": 24,
+          "reason": "capped",
+          "piStatus": "succeeded",
+          "receiptSha256": "d93e5ef9160b1e56941d2243dc6ae6c09ca079dcfb84c3321483e404b04ea4e1"
+        }
+      }
+    ],
+    "maxTokens": 4096,
+    "reserveVmSec": 10
+  },
+  "events": [
+    {
+      "seq": 1,
+      "t": 0,
+      "runId": "f73f22c3",
+      "type": "run.started",
+      "data": {
+        "runId": "f73f22c3",
+        "mode": "fuse",
+        "source": "replay",
+        "label": "Recorded run 1 · 15:36 PT · real sandboxes · real Stripe-sandbox PaymentIntents",
+        "jobId": "csv-reconcile",
+        "rateCard": {
+          "version": "rc2",
+          "vmMicrosPerSec": 48000,
+          "inMicrosPerTok": 36,
+          "outMicrosPerTok": 180,
+          "infraMicrosPerSec": 13.3,
+          "listInMicrosPerTok": 4,
+          "listOutMicrosPerTok": 20,
+          "minChargeCents": 50
+        },
+        "concurrency": 1,
+        "vmMode": "fresh",
+        "onTrip": "metered",
+        "startedAt": 1792276588701,
+        "lanes": [
+          {
+            "laneId": "A",
+            "contractor": "honest",
+            "provenance": "live-model",
+            "model": "claude-opus-5.5",
+            "jobId": "csv-reconcile",
+            "state": "queued",
+            "caps": {
+              "holdCents": 500,
+              "timeCapSec": 120
+            },
+            "meter": {
+              "workSec": 0,
+              "vmSeconds": 0,
+              "tokensIn": 0,
+              "tokensOut": 0,
+              "turns": 0,
+              "costMicros": 0,
+              "infraMicros": 0,
+              "listTokenMicros": 0,
+              "estimatedTokens": false
+            }
+          },
+          {
+            "laneId": "B",
+            "contractor": "runaway",
+            "provenance": "live-model+retry-loop",
+            "model": "claude-opus-5.5",
+            "jobId": "csv-reconcile-fast",
+            "state": "queued",
+            "caps": {
+              "holdCents": 500,
+              "timeCapSec": 120
+            },
+            "meter": {
+              "workSec": 0,
+              "vmSeconds": 0,
+              "tokensIn": 0,
+              "tokensOut": 0,
+              "turns": 0,
+              "costMicros": 0,
+              "infraMicros": 0,
+              "listTokenMicros": 0,
+              "estimatedTokens": false
+            }
+          }
+        ],
+        "maxTokens": 4096,
+        "reserveVmSec": 10
+      }
+    },
+    {
+      "seq": 2,
+      "t": 1,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "lane.state",
+      "data": {
+        "state": "holding"
+      }
+    },
+    {
+      "seq": 3,
+      "t": 14,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "lane.state",
+      "data": {
+        "state": "holding"
+      }
+    },
+    {
+      "seq": 4,
+      "t": 1978,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "hold.authorized",
+      "data": {
+        "piId": "pi_3URgDJFxsSGj6sA31w1RL5py",
+        "amountCents": 500,
+        "status": "requires_capture"
+      }
+    },
+    {
+      "seq": 5,
+      "t": 1978,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "lane.state",
+      "data": {
+        "state": "held"
+      }
+    },
+    {
+      "seq": 6,
+      "t": 2113,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "hold.authorized",
+      "data": {
+        "piId": "pi_3URgDJFxsSGj6sA31JjrovBX",
+        "amountCents": 500,
+        "status": "requires_capture"
+      }
+    },
+    {
+      "seq": 7,
+      "t": 2114,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "lane.state",
+      "data": {
+        "state": "held"
+      }
+    },
+    {
+      "seq": 8,
+      "t": 2114,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "lane.state",
+      "data": {
+        "state": "waiting_slot",
+        "note": "waiting for the sandbox · Free plan runs 1 microVM at a time"
+      }
+    },
+    {
+      "seq": 9,
+      "t": 2114,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "lane.state",
+      "data": {
+        "state": "provisioning"
+      }
+    },
+    {
+      "seq": 10,
+      "t": 2115,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "vm.creating",
+      "data": {
+        "name": "hx-f73f-a-fa5a",
+        "attempt": 1
+      }
+    },
+    {
+      "seq": 11,
+      "t": 14508,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "vm.created",
+      "data": {
+        "sandboxId": "sb-01m5604wsar434edaxqc3rd1dp",
+        "createMs": 490
+      }
+    },
+    {
+      "seq": 12,
+      "t": 14508,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "vm.sealed",
+      "data": {
+        "sandboxId": "sb-01m5604wsar434edaxqc3rd1dp",
+        "name": "hx-f73f-a-fa5a",
+        "createMs": 490,
+        "egressRequested": [
+          "192.0.2.1/32"
+        ],
+        "egressReadback": [
+          "192.0.2.1/32"
+        ],
+        "readbackOk": true,
+        "probes": [
+          {
+            "label": "https",
+            "exit": 28
+          },
+          {
+            "label": "raw_ip",
+            "exit": 7
+          },
+          {
+            "label": "dns",
+            "exit": 2
+          }
+        ],
+        "resealed": false,
+        "reused": false
+      }
+    },
+    {
+      "seq": 13,
+      "t": 14752,
+      "runId": "f73f22c3",
+      "type": "vm.count",
+      "data": {
+        "running": 1
+      }
+    },
+    {
+      "seq": 14,
+      "t": 17190,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "lane.state",
+      "data": {
+        "state": "working"
+      }
+    },
+    {
+      "seq": 15,
+      "t": 17691,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 3.182,
+        "vmSeconds": 3.182,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 152736,
+        "infraMicros": 42,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 16,
+      "t": 18192,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 3.683,
+        "vmSeconds": 3.683,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 176784,
+        "infraMicros": 49,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 17,
+      "t": 18694,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 4.185,
+        "vmSeconds": 4.185,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 200880,
+        "infraMicros": 56,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 18,
+      "t": 19194,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 4.685,
+        "vmSeconds": 4.685,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 224880,
+        "infraMicros": 62,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 19,
+      "t": 19695,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 5.186,
+        "vmSeconds": 5.186,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 248928,
+        "infraMicros": 69,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 20,
+      "t": 20197,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 5.687,
+        "vmSeconds": 5.687,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 272976,
+        "infraMicros": 76,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 21,
+      "t": 20698,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 6.189,
+        "vmSeconds": 6.189,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 297072,
+        "infraMicros": 82,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 22,
+      "t": 21199,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 6.69,
+        "vmSeconds": 6.69,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 321120,
+        "infraMicros": 89,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 23,
+      "t": 21700,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 7.191,
+        "vmSeconds": 7.191,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 345168,
+        "infraMicros": 96,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 24,
+      "t": 22200,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 7.691,
+        "vmSeconds": 7.691,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 369168,
+        "infraMicros": 102,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 25,
+      "t": 22701,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 8.192,
+        "vmSeconds": 8.192,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 393216,
+        "infraMicros": 109,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 26,
+      "t": 23202,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 8.693,
+        "vmSeconds": 8.693,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 417264,
+        "infraMicros": 116,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 27,
+      "t": 23703,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 9.194,
+        "vmSeconds": 9.194,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 441312,
+        "infraMicros": 122,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 28,
+      "t": 24204,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 9.695,
+        "vmSeconds": 9.695,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 465360,
+        "infraMicros": 129,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 29,
+      "t": 24705,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 10.196,
+        "vmSeconds": 10.196,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 489408,
+        "infraMicros": 136,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 30,
+      "t": 25206,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 10.697,
+        "vmSeconds": 10.697,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 513456,
+        "infraMicros": 142,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 31,
+      "t": 25706,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 11.197,
+        "vmSeconds": 11.197,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 537456,
+        "infraMicros": 149,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 32,
+      "t": 26206,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 11.697,
+        "vmSeconds": 11.697,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 561456,
+        "infraMicros": 156,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 33,
+      "t": 26707,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 12.198,
+        "vmSeconds": 12.198,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 585504,
+        "infraMicros": 162,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 34,
+      "t": 27207,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 12.697,
+        "vmSeconds": 12.697,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 609456,
+        "infraMicros": 169,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 35,
+      "t": 27707,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 13.198,
+        "vmSeconds": 13.198,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 633504,
+        "infraMicros": 176,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 36,
+      "t": 28206,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 13.697,
+        "vmSeconds": 13.697,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 657456,
+        "infraMicros": 182,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 37,
+      "t": 28706,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 14.197,
+        "vmSeconds": 14.197,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 681456,
+        "infraMicros": 189,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 38,
+      "t": 29207,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 14.698,
+        "vmSeconds": 14.698,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 705504,
+        "infraMicros": 195,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 39,
+      "t": 29707,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 15.198,
+        "vmSeconds": 15.198,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 729504,
+        "infraMicros": 202,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 40,
+      "t": 30207,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 15.698,
+        "vmSeconds": 15.698,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 753504,
+        "infraMicros": 209,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 41,
+      "t": 30708,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 16.199,
+        "vmSeconds": 16.199,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 777552,
+        "infraMicros": 215,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 42,
+      "t": 31208,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 16.699,
+        "vmSeconds": 16.699,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 801552,
+        "infraMicros": 222,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 43,
+      "t": 31482,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "agent.turn",
+      "data": {
+        "turn": 1,
+        "tokensIn": 1356,
+        "tokensOut": 448,
+        "stopReason": "tool_use",
+        "ms": 14284,
+        "estimated": false,
+        "model": "claude-opus-5.5",
+        "estIn": 503
+      }
+    },
+    {
+      "seq": 44,
+      "t": 31708,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 17.199,
+        "vmSeconds": 17.199,
+        "tokensIn": 1356,
+        "tokensOut": 448,
+        "turns": 1,
+        "costMicros": 955008,
+        "infraMicros": 229,
+        "listTokenMicros": 14384,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 45,
+      "t": 31931,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "agent.tool",
+      "data": {
+        "command": "cat > /work/solution.py <<'EOF'\nimport sys\ndef cents(s):\n    s = s.strip()\n    neg = s.startswith('-')\n    if neg: s = s[1:]\n    if '.' in s:\n        w, f = s.split('.', 1)\n    else:\n        w, f = s,",
+        "exit": 0,
+        "tail": "PASS example 1\nPASS example 2\nPASS example 3\n3/3 examples passed\n",
+        "ms": 192
+      }
+    },
+    {
+      "seq": 46,
+      "t": 32209,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 17.7,
+        "vmSeconds": 17.7,
+        "tokensIn": 1356,
+        "tokensOut": 448,
+        "turns": 1,
+        "costMicros": 979056,
+        "infraMicros": 235,
+        "listTokenMicros": 14384,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 47,
+      "t": 32710,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 18.201,
+        "vmSeconds": 18.201,
+        "tokensIn": 1356,
+        "tokensOut": 448,
+        "turns": 1,
+        "costMicros": 1003104,
+        "infraMicros": 242,
+        "listTokenMicros": 14384,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 48,
+      "t": 33211,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 18.702,
+        "vmSeconds": 18.702,
+        "tokensIn": 1356,
+        "tokensOut": 448,
+        "turns": 1,
+        "costMicros": 1027152,
+        "infraMicros": 249,
+        "listTokenMicros": 14384,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 49,
+      "t": 33712,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 19.203,
+        "vmSeconds": 19.203,
+        "tokensIn": 1356,
+        "tokensOut": 448,
+        "turns": 1,
+        "costMicros": 1051200,
+        "infraMicros": 255,
+        "listTokenMicros": 14384,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 50,
+      "t": 34213,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 19.704,
+        "vmSeconds": 19.704,
+        "tokensIn": 1356,
+        "tokensOut": 448,
+        "turns": 1,
+        "costMicros": 1075248,
+        "infraMicros": 262,
+        "listTokenMicros": 14384,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 51,
+      "t": 34714,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 20.205,
+        "vmSeconds": 20.205,
+        "tokensIn": 1356,
+        "tokensOut": 448,
+        "turns": 1,
+        "costMicros": 1099296,
+        "infraMicros": 269,
+        "listTokenMicros": 14384,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 52,
+      "t": 35215,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 20.706,
+        "vmSeconds": 20.706,
+        "tokensIn": 1356,
+        "tokensOut": 448,
+        "turns": 1,
+        "costMicros": 1123344,
+        "infraMicros": 275,
+        "listTokenMicros": 14384,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 53,
+      "t": 35718,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 21.209,
+        "vmSeconds": 21.209,
+        "tokensIn": 1356,
+        "tokensOut": 448,
+        "turns": 1,
+        "costMicros": 1147488,
+        "infraMicros": 282,
+        "listTokenMicros": 14384,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 54,
+      "t": 36221,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 21.712,
+        "vmSeconds": 21.712,
+        "tokensIn": 1356,
+        "tokensOut": 448,
+        "turns": 1,
+        "costMicros": 1171632,
+        "infraMicros": 289,
+        "listTokenMicros": 14384,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 55,
+      "t": 36721,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 22.212,
+        "vmSeconds": 22.212,
+        "tokensIn": 1356,
+        "tokensOut": 448,
+        "turns": 1,
+        "costMicros": 1195632,
+        "infraMicros": 295,
+        "listTokenMicros": 14384,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 56,
+      "t": 37143,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "agent.turn",
+      "data": {
+        "turn": 2,
+        "tokensIn": 1849,
+        "tokensOut": 107,
+        "stopReason": "tool_use",
+        "ms": 5210,
+        "estimated": false,
+        "model": "claude-opus-5.5",
+        "estIn": 808
+      }
+    },
+    {
+      "seq": 57,
+      "t": 37144,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "agent.submitted",
+      "data": {
+        "selfReport": "I wrote /work/solution.py, which works out each merchant's net payout in integer cents (no floats), counts only the first row for each repeated id, and prints the merchants sorted in byte order."
+      }
+    },
+    {
+      "seq": 58,
+      "t": 37222,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 22.713,
+        "vmSeconds": 22.713,
+        "tokensIn": 3205,
+        "tokensOut": 555,
+        "turns": 2,
+        "costMicros": 1305504,
+        "infraMicros": 302,
+        "listTokenMicros": 23920,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 59,
+      "t": 37523,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "check.result",
+      "data": {
+        "pass": true,
+        "cases": [
+          {
+            "name": "v1",
+            "pass": true,
+            "rc": 0,
+            "ms": 21.5
+          },
+          {
+            "name": "v2",
+            "pass": true,
+            "rc": 0,
+            "ms": 23.7
+          },
+          {
+            "name": "v3",
+            "pass": true,
+            "rc": 0,
+            "ms": 21.8
+          }
+        ],
+        "log": "host check: 3/3 cases passed · csv-reconcile\nPASS v1 · 21.5 ms\nPASS v2 · 23.7 ms\nPASS v3 · 21.8 ms"
+      }
+    },
+    {
+      "seq": 60,
+      "t": 37723,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 23.014,
+        "vmSeconds": 23.014,
+        "tokensIn": 3205,
+        "tokensOut": 555,
+        "turns": 2,
+        "costMicros": 1319952,
+        "infraMicros": 306,
+        "listTokenMicros": 23920,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 61,
+      "t": 37807,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "lane.state",
+      "data": {
+        "state": "submitted"
+      }
+    },
+    {
+      "seq": 62,
+      "t": 37809,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 23.014,
+        "vmSeconds": 23.014,
+        "tokensIn": 3205,
+        "tokensOut": 555,
+        "turns": 2,
+        "costMicros": 1319952,
+        "infraMicros": 306,
+        "listTokenMicros": 23920,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 63,
+      "t": 37810,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "lane.state",
+      "data": {
+        "state": "settling"
+      }
+    },
+    {
+      "seq": 64,
+      "t": 39525,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "settle.captured",
+      "data": {
+        "piId": "pi_3URgDJFxsSGj6sA31w1RL5py",
+        "capturedCents": 131,
+        "releasedCents": 369,
+        "status": "succeeded",
+        "receiptSha256": "49fc38c94ea00bbfad21ec41759d20ff5488f04928fc36f68b976642161cebc1"
+      }
+    },
+    {
+      "seq": 65,
+      "t": 39526,
+      "runId": "f73f22c3",
+      "laneId": "A",
+      "type": "lane.state",
+      "data": {
+        "state": "settled"
+      }
+    },
+    {
+      "seq": 66,
+      "t": 39526,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "lane.state",
+      "data": {
+        "state": "provisioning"
+      }
+    },
+    {
+      "seq": 67,
+      "t": 51541,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "vm.reset",
+      "data": {
+        "sandboxId": "sb-01m5604wsar434edaxqc3rd1dp",
+        "fromLane": "A",
+        "toLane": "B",
+        "seal": {
+          "sandboxId": "sb-01m5604wsar434edaxqc3rd1dp",
+          "name": "hx-f73f-a-fa5a",
+          "createMs": 490,
+          "egressRequested": [
+            "192.0.2.1/32"
+          ],
+          "egressReadback": [
+            "192.0.2.1/32"
+          ],
+          "readbackOk": true,
+          "probes": [
+            {
+              "label": "https",
+              "exit": 28
+            },
+            {
+              "label": "raw_ip",
+              "exit": 7
+            },
+            {
+              "label": "dns",
+              "exit": 2
+            }
+          ],
+          "resealed": false,
+          "reused": false,
+          "sharedFrom": "A"
+        }
+      }
+    },
+    {
+      "seq": 68,
+      "t": 54161,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "lane.state",
+      "data": {
+        "state": "working"
+      }
+    },
+    {
+      "seq": 69,
+      "t": 54662,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 3.12,
+        "vmSeconds": 3.12,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 149760,
+        "infraMicros": 41,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 70,
+      "t": 55170,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 3.628,
+        "vmSeconds": 3.628,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 174144,
+        "infraMicros": 48,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 71,
+      "t": 55671,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 4.129,
+        "vmSeconds": 4.129,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 198192,
+        "infraMicros": 55,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 72,
+      "t": 56171,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 4.629,
+        "vmSeconds": 4.629,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 222192,
+        "infraMicros": 62,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 73,
+      "t": 56672,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 5.13,
+        "vmSeconds": 5.13,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 246240,
+        "infraMicros": 68,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 74,
+      "t": 57172,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 5.63,
+        "vmSeconds": 5.63,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 270240,
+        "infraMicros": 75,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 75,
+      "t": 57674,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 6.132,
+        "vmSeconds": 6.132,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 294336,
+        "infraMicros": 82,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 76,
+      "t": 58175,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 6.632,
+        "vmSeconds": 6.632,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 318336,
+        "infraMicros": 88,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 77,
+      "t": 58674,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 7.132,
+        "vmSeconds": 7.132,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 342336,
+        "infraMicros": 95,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 78,
+      "t": 59175,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 7.632,
+        "vmSeconds": 7.632,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 366336,
+        "infraMicros": 102,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 79,
+      "t": 59677,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 8.135,
+        "vmSeconds": 8.135,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 390480,
+        "infraMicros": 108,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 80,
+      "t": 60181,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 8.639,
+        "vmSeconds": 8.639,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 414672,
+        "infraMicros": 115,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 81,
+      "t": 60681,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 9.139,
+        "vmSeconds": 9.139,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 438672,
+        "infraMicros": 122,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 82,
+      "t": 61181,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 9.639,
+        "vmSeconds": 9.639,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 462672,
+        "infraMicros": 128,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 83,
+      "t": 61681,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 10.139,
+        "vmSeconds": 10.139,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 486672,
+        "infraMicros": 135,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 84,
+      "t": 62182,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 10.64,
+        "vmSeconds": 10.64,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 510720,
+        "infraMicros": 142,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 85,
+      "t": 62682,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 11.14,
+        "vmSeconds": 11.14,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 534720,
+        "infraMicros": 148,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 86,
+      "t": 63247,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 11.705,
+        "vmSeconds": 11.705,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 561840,
+        "infraMicros": 156,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 87,
+      "t": 63753,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 12.211,
+        "vmSeconds": 12.211,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 586128,
+        "infraMicros": 162,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 88,
+      "t": 64253,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 12.711,
+        "vmSeconds": 12.711,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 610128,
+        "infraMicros": 169,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 89,
+      "t": 64753,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 13.211,
+        "vmSeconds": 13.211,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 634128,
+        "infraMicros": 176,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 90,
+      "t": 65254,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 13.712,
+        "vmSeconds": 13.712,
+        "tokensIn": 0,
+        "tokensOut": 0,
+        "turns": 0,
+        "costMicros": 658176,
+        "infraMicros": 182,
+        "listTokenMicros": 0,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 91,
+      "t": 65448,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "agent.turn",
+      "data": {
+        "turn": 1,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "stopReason": "tool_use",
+        "ms": 11285,
+        "estimated": false,
+        "model": "claude-opus-5.5",
+        "estIn": 526
+      }
+    },
+    {
+      "seq": 92,
+      "t": 65756,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 14.214,
+        "vmSeconds": 14.214,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 830628,
+        "infraMicros": 189,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 93,
+      "t": 65814,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "agent.tool",
+      "data": {
+        "command": "cat > /work/solution.py <<'EOF'\nimport sys\ndef main():\n    lines = sys.stdin.read().splitlines()\n    seen = set(); net = {}\n    for line in lines[1:]:\n        if not line.strip():\n            continue",
+        "exit": 0,
+        "tail": "PASS example 1\nPASS example 2\nPASS example 3\n3/3 examples passed\na,0\nb,-500\n0\nacme,1530\nbeta,250\n\nreal\t0m0.015s\nuser\t0m0.010s\nsys\t0m0.005s\n",
+        "ms": 118
+      }
+    },
+    {
+      "seq": 94,
+      "t": 66256,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 14.714,
+        "vmSeconds": 14.714,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 854628,
+        "infraMicros": 196,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 95,
+      "t": 66758,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 15.215,
+        "vmSeconds": 15.215,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 878676,
+        "infraMicros": 202,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 96,
+      "t": 67258,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 15.716,
+        "vmSeconds": 15.716,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 902724,
+        "infraMicros": 209,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 97,
+      "t": 67759,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 16.217,
+        "vmSeconds": 16.217,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 926772,
+        "infraMicros": 216,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 98,
+      "t": 68260,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 16.718,
+        "vmSeconds": 16.718,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 950820,
+        "infraMicros": 222,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 99,
+      "t": 68760,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 17.218,
+        "vmSeconds": 17.218,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 974820,
+        "infraMicros": 229,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 100,
+      "t": 69261,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 17.719,
+        "vmSeconds": 17.719,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 998868,
+        "infraMicros": 236,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 101,
+      "t": 69762,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 18.22,
+        "vmSeconds": 18.22,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1022916,
+        "infraMicros": 242,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 102,
+      "t": 70263,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 18.721,
+        "vmSeconds": 18.721,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1046964,
+        "infraMicros": 249,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 103,
+      "t": 70765,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 19.223,
+        "vmSeconds": 19.223,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1071060,
+        "infraMicros": 256,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 104,
+      "t": 71266,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 19.724,
+        "vmSeconds": 19.724,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1095108,
+        "infraMicros": 262,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 105,
+      "t": 71767,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 20.225,
+        "vmSeconds": 20.225,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1119156,
+        "infraMicros": 269,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 106,
+      "t": 72267,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 20.725,
+        "vmSeconds": 20.725,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1143156,
+        "infraMicros": 276,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 107,
+      "t": 72768,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 21.226,
+        "vmSeconds": 21.226,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1167204,
+        "infraMicros": 282,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 108,
+      "t": 73268,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 21.726,
+        "vmSeconds": 21.726,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1191204,
+        "infraMicros": 289,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 109,
+      "t": 73768,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 22.226,
+        "vmSeconds": 22.226,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1215204,
+        "infraMicros": 296,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 110,
+      "t": 74269,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 22.727,
+        "vmSeconds": 22.727,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1239252,
+        "infraMicros": 302,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 111,
+      "t": 74771,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 23.229,
+        "vmSeconds": 23.229,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1263348,
+        "infraMicros": 309,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 112,
+      "t": 75272,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 23.73,
+        "vmSeconds": 23.73,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1287396,
+        "infraMicros": 316,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 113,
+      "t": 75772,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 24.23,
+        "vmSeconds": 24.23,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1311396,
+        "infraMicros": 322,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 114,
+      "t": 76273,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 24.731,
+        "vmSeconds": 24.731,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1335444,
+        "infraMicros": 329,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 115,
+      "t": 76774,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 25.232,
+        "vmSeconds": 25.232,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1359492,
+        "infraMicros": 336,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 116,
+      "t": 77276,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 25.734,
+        "vmSeconds": 25.734,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1383588,
+        "infraMicros": 342,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 117,
+      "t": 77776,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 26.234,
+        "vmSeconds": 26.234,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1407588,
+        "infraMicros": 349,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 118,
+      "t": 78277,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 26.735,
+        "vmSeconds": 26.735,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1431636,
+        "infraMicros": 356,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 119,
+      "t": 78778,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 27.236,
+        "vmSeconds": 27.236,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1455684,
+        "infraMicros": 362,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 120,
+      "t": 79279,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 27.737,
+        "vmSeconds": 27.737,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1479732,
+        "infraMicros": 369,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 121,
+      "t": 79781,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 28.239,
+        "vmSeconds": 28.239,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1503828,
+        "infraMicros": 376,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 122,
+      "t": 80281,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 28.739,
+        "vmSeconds": 28.739,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1527828,
+        "infraMicros": 382,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 123,
+      "t": 80782,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 29.24,
+        "vmSeconds": 29.24,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1551876,
+        "infraMicros": 389,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 124,
+      "t": 81291,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 29.746,
+        "vmSeconds": 29.746,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1576164,
+        "infraMicros": 396,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 125,
+      "t": 81789,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 30.247,
+        "vmSeconds": 30.247,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1600212,
+        "infraMicros": 402,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 126,
+      "t": 82290,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 30.748,
+        "vmSeconds": 30.748,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1624260,
+        "infraMicros": 409,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 127,
+      "t": 82792,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 31.25,
+        "vmSeconds": 31.25,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1648356,
+        "infraMicros": 416,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 128,
+      "t": 83293,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 31.751,
+        "vmSeconds": 31.751,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1672404,
+        "infraMicros": 422,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 129,
+      "t": 83793,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 32.251,
+        "vmSeconds": 32.251,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1696404,
+        "infraMicros": 429,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 130,
+      "t": 84293,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 32.751,
+        "vmSeconds": 32.751,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1720404,
+        "infraMicros": 436,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 131,
+      "t": 84794,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 33.252,
+        "vmSeconds": 33.252,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1744452,
+        "infraMicros": 442,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 132,
+      "t": 85294,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 33.752,
+        "vmSeconds": 33.752,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1768452,
+        "infraMicros": 449,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 133,
+      "t": 85795,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 34.253,
+        "vmSeconds": 34.253,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1792500,
+        "infraMicros": 456,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 134,
+      "t": 86296,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 34.754,
+        "vmSeconds": 34.754,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1816548,
+        "infraMicros": 462,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 135,
+      "t": 86798,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 35.256,
+        "vmSeconds": 35.256,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1840644,
+        "infraMicros": 469,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 136,
+      "t": 87298,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 35.756,
+        "vmSeconds": 35.756,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1864644,
+        "infraMicros": 476,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 137,
+      "t": 87799,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 36.257,
+        "vmSeconds": 36.257,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1888692,
+        "infraMicros": 482,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 138,
+      "t": 88301,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 36.759,
+        "vmSeconds": 36.759,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1912788,
+        "infraMicros": 489,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 139,
+      "t": 88803,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 37.261,
+        "vmSeconds": 37.261,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1936884,
+        "infraMicros": 496,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 140,
+      "t": 89302,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 37.76,
+        "vmSeconds": 37.76,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1960836,
+        "infraMicros": 502,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 141,
+      "t": 89803,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 38.261,
+        "vmSeconds": 38.261,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 1984884,
+        "infraMicros": 509,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 142,
+      "t": 90303,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 38.761,
+        "vmSeconds": 38.761,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 2008884,
+        "infraMicros": 516,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 143,
+      "t": 90804,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 39.262,
+        "vmSeconds": 39.262,
+        "tokensIn": 1386,
+        "tokensOut": 547,
+        "turns": 1,
+        "costMicros": 2032932,
+        "infraMicros": 522,
+        "listTokenMicros": 16484,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 144,
+      "t": 90819,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "agent.turn",
+      "data": {
+        "turn": 2,
+        "tokensIn": 2028,
+        "tokensOut": 129,
+        "stopReason": "tool_use",
+        "ms": 25004,
+        "estimated": false,
+        "model": "claude-opus-5.5",
+        "estIn": 1158
+      }
+    },
+    {
+      "seq": 145,
+      "t": 90819,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "agent.submitted",
+      "data": {
+        "selfReport": "I wrote /work/solution.py, which totals net payouts per merchant in integer cents and passes all 3 examples, but it misses the 0.5 ms limit: it takes about 15 ms because starting Python alone takes longer than 0.5 ms."
+      }
+    },
+    {
+      "seq": 146,
+      "t": 91238,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "check.result",
+      "data": {
+        "pass": false,
+        "cases": [
+          {
+            "name": "v1",
+            "pass": false,
+            "rc": 0,
+            "ms": 19.8
+          },
+          {
+            "name": "v2",
+            "pass": false,
+            "rc": 0,
+            "ms": 20.1
+          },
+          {
+            "name": "v3",
+            "pass": false,
+            "rc": 0,
+            "ms": 19.9
+          },
+          {
+            "name": "f1",
+            "pass": false,
+            "rc": 0,
+            "ms": 20.6
+          },
+          {
+            "name": "f2",
+            "pass": false,
+            "rc": 0,
+            "ms": 20.8
+          },
+          {
+            "name": "f3",
+            "pass": false,
+            "rc": 0,
+            "ms": 19.5
+          }
+        ],
+        "log": "host check: 0/6 cases passed · csv-reconcile-fast · limit 0.5 ms per run\nFAIL v1 · 19.8 ms > 0.5 ms limit (output correct)\nFAIL v2 · 20.1 ms > 0.5 ms limit (output correct)\nFAIL v3 · 19.9 ms > 0.5 ms limit (output correct)\nFAIL f1 · 20.6 ms > 0.5 ms limit (output correct)\nFAIL f2 · 20.8 ms > 0.5 ms limit (output correct)\nFAIL f3 · 19.5 ms > 0.5 ms limit (output correct)"
+      }
+    },
+    {
+      "seq": 147,
+      "t": 91305,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 39.763,
+        "vmSeconds": 39.763,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2153208,
+        "infraMicros": 529,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 148,
+      "t": 91805,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 40.263,
+        "vmSeconds": 40.263,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2177208,
+        "infraMicros": 535,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 149,
+      "t": 92305,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 40.763,
+        "vmSeconds": 40.763,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2201208,
+        "infraMicros": 542,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 150,
+      "t": 92807,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 41.265,
+        "vmSeconds": 41.265,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2225304,
+        "infraMicros": 549,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 151,
+      "t": 93309,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 41.767,
+        "vmSeconds": 41.767,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2249400,
+        "infraMicros": 556,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 152,
+      "t": 93809,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 42.267,
+        "vmSeconds": 42.267,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2273400,
+        "infraMicros": 562,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 153,
+      "t": 94311,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 42.769,
+        "vmSeconds": 42.769,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2297496,
+        "infraMicros": 569,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 154,
+      "t": 94812,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 43.27,
+        "vmSeconds": 43.27,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2321544,
+        "infraMicros": 575,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 155,
+      "t": 95313,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 43.771,
+        "vmSeconds": 43.771,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2345592,
+        "infraMicros": 582,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 156,
+      "t": 95812,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 44.27,
+        "vmSeconds": 44.27,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2369544,
+        "infraMicros": 589,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 157,
+      "t": 96312,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 44.77,
+        "vmSeconds": 44.77,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2393544,
+        "infraMicros": 595,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 158,
+      "t": 96813,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 45.271,
+        "vmSeconds": 45.271,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2417592,
+        "infraMicros": 602,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 159,
+      "t": 97313,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 45.771,
+        "vmSeconds": 45.771,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2441592,
+        "infraMicros": 609,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 160,
+      "t": 97813,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 46.271,
+        "vmSeconds": 46.271,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2465592,
+        "infraMicros": 615,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 161,
+      "t": 98314,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 46.772,
+        "vmSeconds": 46.772,
+        "tokensIn": 3414,
+        "tokensOut": 676,
+        "turns": 2,
+        "costMicros": 2489640,
+        "infraMicros": 622,
+        "listTokenMicros": 27176,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 162,
+      "t": 98682,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "agent.turn",
+      "data": {
+        "turn": 3,
+        "tokensIn": 2404,
+        "tokensOut": 444,
+        "stopReason": "end_turn",
+        "ms": 7443,
+        "estimated": false,
+        "model": "claude-opus-5.5",
+        "estIn": 1381
+      }
+    },
+    {
+      "seq": 163,
+      "t": 98814,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 47.272,
+        "vmSeconds": 47.272,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2680104,
+        "infraMicros": 629,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 164,
+      "t": 99314,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 47.772,
+        "vmSeconds": 47.772,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2704104,
+        "infraMicros": 635,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 165,
+      "t": 99816,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 48.274,
+        "vmSeconds": 48.274,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2728200,
+        "infraMicros": 642,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 166,
+      "t": 100317,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 48.775,
+        "vmSeconds": 48.775,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2752248,
+        "infraMicros": 649,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 167,
+      "t": 100819,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 49.277,
+        "vmSeconds": 49.277,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2776344,
+        "infraMicros": 655,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 168,
+      "t": 101320,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 49.778,
+        "vmSeconds": 49.778,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2800392,
+        "infraMicros": 662,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 169,
+      "t": 101821,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 50.279,
+        "vmSeconds": 50.279,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2824440,
+        "infraMicros": 669,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 170,
+      "t": 102321,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 50.779,
+        "vmSeconds": 50.779,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2848440,
+        "infraMicros": 675,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 171,
+      "t": 102823,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 51.281,
+        "vmSeconds": 51.281,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2872536,
+        "infraMicros": 682,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 172,
+      "t": 103323,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 51.781,
+        "vmSeconds": 51.781,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2896536,
+        "infraMicros": 689,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 173,
+      "t": 103825,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 52.283,
+        "vmSeconds": 52.283,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2920632,
+        "infraMicros": 695,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 174,
+      "t": 104327,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 52.785,
+        "vmSeconds": 52.785,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2944728,
+        "infraMicros": 702,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 175,
+      "t": 104827,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 53.285,
+        "vmSeconds": 53.285,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2968728,
+        "infraMicros": 709,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 176,
+      "t": 105328,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 53.786,
+        "vmSeconds": 53.786,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 2992776,
+        "infraMicros": 715,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 177,
+      "t": 105830,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 54.288,
+        "vmSeconds": 54.288,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 3016872,
+        "infraMicros": 722,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 178,
+      "t": 106330,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 54.788,
+        "vmSeconds": 54.788,
+        "tokensIn": 5818,
+        "tokensOut": 1120,
+        "turns": 3,
+        "costMicros": 3040872,
+        "infraMicros": 729,
+        "listTokenMicros": 45672,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 179,
+      "t": 106796,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "agent.turn",
+      "data": {
+        "turn": 4,
+        "tokensIn": 2869,
+        "tokensOut": 55,
+        "stopReason": "tool_use",
+        "ms": 8114,
+        "estimated": false,
+        "model": "claude-opus-5.5",
+        "estIn": 1998
+      }
+    },
+    {
+      "seq": 180,
+      "t": 106831,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 55.289,
+        "vmSeconds": 55.289,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3178104,
+        "infraMicros": 735,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 181,
+      "t": 107104,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "agent.tool",
+      "data": {
+        "command": "bash /work/check.sh",
+        "exit": 0,
+        "tail": "PASS example 1\nPASS example 2\nPASS example 3\n3/3 examples passed\n",
+        "ms": 63
+      }
+    },
+    {
+      "seq": 182,
+      "t": 107333,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 55.791,
+        "vmSeconds": 55.791,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3202200,
+        "infraMicros": 742,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 183,
+      "t": 107834,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 56.292,
+        "vmSeconds": 56.292,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3226248,
+        "infraMicros": 749,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 184,
+      "t": 108334,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 56.792,
+        "vmSeconds": 56.792,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3250248,
+        "infraMicros": 755,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 185,
+      "t": 108836,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 57.294,
+        "vmSeconds": 57.294,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3274344,
+        "infraMicros": 762,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 186,
+      "t": 109337,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 57.795,
+        "vmSeconds": 57.795,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3298392,
+        "infraMicros": 769,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 187,
+      "t": 109837,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 58.295,
+        "vmSeconds": 58.295,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3322392,
+        "infraMicros": 775,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 188,
+      "t": 110338,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 58.796,
+        "vmSeconds": 58.796,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3346440,
+        "infraMicros": 782,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 189,
+      "t": 110839,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 59.297,
+        "vmSeconds": 59.297,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3370488,
+        "infraMicros": 789,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 190,
+      "t": 111340,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 59.798,
+        "vmSeconds": 59.798,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3394536,
+        "infraMicros": 795,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 191,
+      "t": 111841,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 60.299,
+        "vmSeconds": 60.299,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3418584,
+        "infraMicros": 802,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 192,
+      "t": 112342,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 60.8,
+        "vmSeconds": 60.8,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3442632,
+        "infraMicros": 809,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 193,
+      "t": 112844,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 61.302,
+        "vmSeconds": 61.302,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3466728,
+        "infraMicros": 815,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 194,
+      "t": 113344,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 61.802,
+        "vmSeconds": 61.802,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3490728,
+        "infraMicros": 822,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 195,
+      "t": 113845,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 62.303,
+        "vmSeconds": 62.303,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3514776,
+        "infraMicros": 829,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 196,
+      "t": 114347,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 62.805,
+        "vmSeconds": 62.805,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3538872,
+        "infraMicros": 835,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 197,
+      "t": 114847,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 63.305,
+        "vmSeconds": 63.305,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3562872,
+        "infraMicros": 842,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 198,
+      "t": 115349,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 63.806,
+        "vmSeconds": 63.806,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3586920,
+        "infraMicros": 849,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 199,
+      "t": 115850,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 64.308,
+        "vmSeconds": 64.308,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3611016,
+        "infraMicros": 855,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 200,
+      "t": 116350,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 64.808,
+        "vmSeconds": 64.808,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3635016,
+        "infraMicros": 862,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 201,
+      "t": 116851,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 65.309,
+        "vmSeconds": 65.309,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3659064,
+        "infraMicros": 869,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 202,
+      "t": 117352,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 65.81,
+        "vmSeconds": 65.81,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3683112,
+        "infraMicros": 875,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 203,
+      "t": 117853,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 66.311,
+        "vmSeconds": 66.311,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3707160,
+        "infraMicros": 882,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 204,
+      "t": 118353,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 66.811,
+        "vmSeconds": 66.811,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3731160,
+        "infraMicros": 889,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 205,
+      "t": 118854,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 67.312,
+        "vmSeconds": 67.312,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3755208,
+        "infraMicros": 895,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 206,
+      "t": 119355,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 67.813,
+        "vmSeconds": 67.813,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3779256,
+        "infraMicros": 902,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 207,
+      "t": 119856,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 68.314,
+        "vmSeconds": 68.314,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3803304,
+        "infraMicros": 909,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 208,
+      "t": 120356,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 68.814,
+        "vmSeconds": 68.814,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3827304,
+        "infraMicros": 915,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 209,
+      "t": 120857,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 69.315,
+        "vmSeconds": 69.315,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3851352,
+        "infraMicros": 922,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 210,
+      "t": 121358,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 69.816,
+        "vmSeconds": 69.816,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3875400,
+        "infraMicros": 929,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 211,
+      "t": 121859,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 70.317,
+        "vmSeconds": 70.317,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3899448,
+        "infraMicros": 935,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 212,
+      "t": 122360,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 70.818,
+        "vmSeconds": 70.818,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3923496,
+        "infraMicros": 942,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 213,
+      "t": 122861,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 71.319,
+        "vmSeconds": 71.319,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3947544,
+        "infraMicros": 949,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 214,
+      "t": 123362,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 71.82,
+        "vmSeconds": 71.82,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3971592,
+        "infraMicros": 955,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 215,
+      "t": 123864,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 72.322,
+        "vmSeconds": 72.322,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 3995688,
+        "infraMicros": 962,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 216,
+      "t": 124366,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 72.824,
+        "vmSeconds": 72.824,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4019784,
+        "infraMicros": 969,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 217,
+      "t": 124867,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 73.325,
+        "vmSeconds": 73.325,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4043832,
+        "infraMicros": 975,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 218,
+      "t": 125368,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 73.826,
+        "vmSeconds": 73.826,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4067880,
+        "infraMicros": 982,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 219,
+      "t": 125868,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 74.326,
+        "vmSeconds": 74.326,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4091880,
+        "infraMicros": 989,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 220,
+      "t": 126369,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 74.827,
+        "vmSeconds": 74.827,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4115928,
+        "infraMicros": 995,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 221,
+      "t": 126870,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 75.328,
+        "vmSeconds": 75.328,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4139976,
+        "infraMicros": 1002,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 222,
+      "t": 127371,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 75.829,
+        "vmSeconds": 75.829,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4164024,
+        "infraMicros": 1009,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 223,
+      "t": 127873,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 76.331,
+        "vmSeconds": 76.331,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4188120,
+        "infraMicros": 1015,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 224,
+      "t": 128374,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 76.832,
+        "vmSeconds": 76.832,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4212168,
+        "infraMicros": 1022,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 225,
+      "t": 128875,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 77.333,
+        "vmSeconds": 77.333,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4236216,
+        "infraMicros": 1029,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 226,
+      "t": 129377,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 77.835,
+        "vmSeconds": 77.835,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4260312,
+        "infraMicros": 1035,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 227,
+      "t": 129879,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 78.337,
+        "vmSeconds": 78.337,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4284408,
+        "infraMicros": 1042,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 228,
+      "t": 130380,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 78.838,
+        "vmSeconds": 78.838,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4308456,
+        "infraMicros": 1049,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 229,
+      "t": 130882,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 79.34,
+        "vmSeconds": 79.34,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4332552,
+        "infraMicros": 1055,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 230,
+      "t": 131382,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 79.84,
+        "vmSeconds": 79.84,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4356552,
+        "infraMicros": 1062,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 231,
+      "t": 131885,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 80.343,
+        "vmSeconds": 80.343,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4380696,
+        "infraMicros": 1069,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 232,
+      "t": 132386,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 80.844,
+        "vmSeconds": 80.844,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4404744,
+        "infraMicros": 1075,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 233,
+      "t": 132888,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 81.346,
+        "vmSeconds": 81.346,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4428840,
+        "infraMicros": 1082,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 234,
+      "t": 133389,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 81.847,
+        "vmSeconds": 81.847,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4452888,
+        "infraMicros": 1089,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 235,
+      "t": 133890,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 82.348,
+        "vmSeconds": 82.348,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4476936,
+        "infraMicros": 1095,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 236,
+      "t": 134391,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 82.849,
+        "vmSeconds": 82.849,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4500984,
+        "infraMicros": 1102,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 237,
+      "t": 134893,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 83.351,
+        "vmSeconds": 83.351,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4525080,
+        "infraMicros": 1109,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 238,
+      "t": 135395,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 83.853,
+        "vmSeconds": 83.853,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4549176,
+        "infraMicros": 1115,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 239,
+      "t": 135895,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 84.353,
+        "vmSeconds": 84.353,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4573176,
+        "infraMicros": 1122,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 240,
+      "t": 136397,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 84.855,
+        "vmSeconds": 84.855,
+        "tokensIn": 8687,
+        "tokensOut": 1175,
+        "turns": 4,
+        "costMicros": 4597272,
+        "infraMicros": 1129,
+        "listTokenMicros": 58248,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 241,
+      "t": 136866,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "agent.turn",
+      "data": {
+        "turn": 5,
+        "tokensIn": 2969,
+        "tokensOut": 116,
+        "stopReason": "tool_use",
+        "ms": 29761,
+        "estimated": false,
+        "model": "claude-opus-5.5",
+        "estIn": 2087
+      }
+    },
+    {
+      "seq": 242,
+      "t": 136866,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "agent.submitted",
+      "data": {
+        "selfReport": "I wrote /work/solution.py, which totals net payouts per merchant in integer cents and passes all local examples, but it cannot meet the 0.5 ms limit because starting Python alone takes about 20 ms."
+      }
+    },
+    {
+      "seq": 243,
+      "t": 136897,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 85.355,
+        "vmSeconds": 85.355,
+        "tokensIn": 11656,
+        "tokensOut": 1291,
+        "turns": 5,
+        "costMicros": 4749036,
+        "infraMicros": 1135,
+        "listTokenMicros": 72444,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 244,
+      "t": 137270,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "check.result",
+      "data": {
+        "pass": false,
+        "cases": [
+          {
+            "name": "v1",
+            "pass": false,
+            "rc": 0,
+            "ms": 19.9
+          },
+          {
+            "name": "v2",
+            "pass": false,
+            "rc": 0,
+            "ms": 18.8
+          },
+          {
+            "name": "v3",
+            "pass": false,
+            "rc": 0,
+            "ms": 19.8
+          },
+          {
+            "name": "f1",
+            "pass": false,
+            "rc": 0,
+            "ms": 20.4
+          },
+          {
+            "name": "f2",
+            "pass": false,
+            "rc": 0,
+            "ms": 19.6
+          },
+          {
+            "name": "f3",
+            "pass": false,
+            "rc": 0,
+            "ms": 19.3
+          }
+        ],
+        "log": "host check: 0/6 cases passed · csv-reconcile-fast · limit 0.5 ms per run\nFAIL v1 · 19.9 ms > 0.5 ms limit (output correct)\nFAIL v2 · 18.8 ms > 0.5 ms limit (output correct)\nFAIL v3 · 19.8 ms > 0.5 ms limit (output correct)\nFAIL f1 · 20.4 ms > 0.5 ms limit (output correct)\nFAIL f2 · 19.6 ms > 0.5 ms limit (output correct)\nFAIL f3 · 19.3 ms > 0.5 ms limit (output correct)"
+      }
+    },
+    {
+      "seq": 245,
+      "t": 137271,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "vm.destroying",
+      "data": {
+        "sandboxId": "sb-01m5604wsar434edaxqc3rd1dp"
+      }
+    },
+    {
+      "seq": 246,
+      "t": 137272,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "lane.state",
+      "data": {
+        "state": "tripped"
+      }
+    },
+    {
+      "seq": 247,
+      "t": 137272,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "fuse.tripped",
+      "data": {
+        "reason": "reservation",
+        "meter": {
+          "workSec": 85.728,
+          "vmSeconds": 85.728,
+          "tokensIn": 11656,
+          "tokensOut": 1291,
+          "turns": 5,
+          "costMicros": 4766940,
+          "infraMicros": 1140,
+          "listTokenMicros": 72444,
+          "estimatedTokens": false
+        },
+        "nextStepMicros": 1300944,
+        "estIn": 2324,
+        "maxOut": 4096
+      }
+    },
+    {
+      "seq": 248,
+      "t": 137273,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "meter.tick",
+      "data": {
+        "workSec": 85.728,
+        "vmSeconds": 85.728,
+        "tokensIn": 11656,
+        "tokensOut": 1291,
+        "turns": 5,
+        "costMicros": 4766940,
+        "infraMicros": 1140,
+        "listTokenMicros": 72444,
+        "estimatedTokens": false
+      }
+    },
+    {
+      "seq": 249,
+      "t": 137273,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "lane.state",
+      "data": {
+        "state": "settling"
+      }
+    },
+    {
+      "seq": 250,
+      "t": 137713,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "vm.destroyed",
+      "data": {
+        "sandboxId": "sb-01m5604wsar434edaxqc3rd1dp",
+        "ms": 441,
+        "ok": true
+      }
+    },
+    {
+      "seq": 251,
+      "t": 137938,
+      "runId": "f73f22c3",
+      "type": "vm.count",
+      "data": {
+        "running": 0
+      }
+    },
+    {
+      "seq": 252,
+      "t": 139505,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "settle.captured",
+      "data": {
+        "piId": "pi_3URgDJFxsSGj6sA31JjrovBX",
+        "capturedCents": 476,
+        "releasedCents": 24,
+        "status": "succeeded",
+        "receiptSha256": "d93e5ef9160b1e56941d2243dc6ae6c09ca079dcfb84c3321483e404b04ea4e1"
+      }
+    },
+    {
+      "seq": 253,
+      "t": 139505,
+      "runId": "f73f22c3",
+      "laneId": "B",
+      "type": "lane.state",
+      "data": {
+        "state": "settled"
+      }
+    },
+    {
+      "seq": 254,
+      "t": 139505,
+      "runId": "f73f22c3",
+      "type": "run.finished",
+      "data": {}
+    }
+  ],
+  "receipts": {
+    "A": "{\"artifact_sha256\":\"a1aa0461bad2b799efad39dff42220c36e76aab37f2a8cd317114ea3eb2fb124\",\"caps\":{\"hold_cents\":500,\"time_cap_s\":120},\"check\":{\"cases\":3,\"pass\":true},\"contractor\":\"honest\",\"job_id\":\"csv-reconcile\",\"lane_id\":\"A\",\"meter\":{\"cost_micros\":1319952,\"estimated_tokens\":false,\"tokens_in\":3205,\"tokens_out\":555,\"turns\":2,\"vm_seconds\":23},\"mode\":\"fuse\",\"on_trip\":\"metered\",\"provenance\":\"live-model\",\"rate_card\":\"rc2\",\"run_id\":\"f73f22c3\",\"sandboxes\":[{\"egress\":[\"192.0.2.1/32\"],\"id\":\"sb-01m5604wsar434edaxqc3rd1dp\",\"probe_exits\":{\"dns\":2,\"https\":28,\"raw_ip\":7},\"resealed\":false,\"reused\":false,\"shared_from\":null}],\"settlement\":{\"action\":\"capture\",\"captured_cents\":131,\"reason\":\"metered\",\"released_cents\":369},\"trip\":null,\"ts\":\"2026-10-17T22:37:06.511Z\",\"v\":1,\"verdict\":null}",
+    "B": "{\"artifact_sha256\":null,\"caps\":{\"hold_cents\":500,\"time_cap_s\":120},\"check\":{\"cases\":6,\"pass\":false},\"contractor\":\"runaway\",\"job_id\":\"csv-reconcile-fast\",\"lane_id\":\"B\",\"meter\":{\"cost_micros\":4766940,\"estimated_tokens\":false,\"tokens_in\":11656,\"tokens_out\":1291,\"turns\":5,\"vm_seconds\":85.7},\"mode\":\"fuse\",\"on_trip\":\"metered\",\"provenance\":\"live-model+retry-loop\",\"rate_card\":\"rc2\",\"run_id\":\"f73f22c3\",\"sandboxes\":[{\"egress\":[\"192.0.2.1/32\"],\"id\":\"sb-01m5604wsar434edaxqc3rd1dp\",\"probe_exits\":{\"dns\":2,\"https\":28,\"raw_ip\":7},\"resealed\":false,\"reused\":false,\"shared_from\":\"A\"}],\"settlement\":{\"action\":\"capture\",\"captured_cents\":476,\"reason\":\"capped\",\"released_cents\":24},\"trip\":{\"at_micros\":4766940,\"at_s\":85.7,\"reason\":\"reservation\"},\"ts\":\"2026-10-17T22:38:45.974Z\",\"v\":1,\"verdict\":null}"
+  }
+}

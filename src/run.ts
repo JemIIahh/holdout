@@ -46,6 +46,7 @@ export interface RunDeps {
 export const MAX_TOKENS = 4096;        // per model call; the fuse reserves it before each call
 export const RESERVE_VM_SEC = 10;      // the reservation's sandbox-time allowance (DESIGN 9.4)
 export const BUSYLOOP_CAP_SEC = 40;    // the busy-loop fixture trips on this time cap (DESIGN 11.4)
+export const RUNAWAY_MAX_TURNS = 30;   // the runaway is stopped by the fuse or the time cap, never by the turn cap
 const TICK_MS = 500;
 const AFTER_TRIP_GRACE_MS = 5_000;     // a tripped lane settles even if its loop has not returned yet
 const LANE_IDS: LaneId[] = ["A", "B", "C", "D"];
@@ -386,6 +387,7 @@ async function execLane(ctx: RunCtx, l: LaneCtx, vm: VmHandle, seal: SealProof):
   } else {
     const params: ContractorParams = { job: l.job, vm, vmApi: deps.vmApi, onSubmit: (s) => onSubmit(ctx, l, s) };
     const opts = lane.contractor === "runaway" ? deps.runawayOptions(params) : deps.honestOptions(params);
+    if (lane.contractor === "runaway") opts.maxTurns = Math.max(opts.maxTurns, RUNAWAY_MAX_TURNS);
     const loop = deps.runAgent(opts, {
       onTurn: (u) => {
         fuse.addTokens(u.tokensIn, u.tokensOut, u.estimated);
@@ -470,6 +472,7 @@ function onTrip(ctx: RunCtx, l: LaneCtx, r: TripReason, m: Meter, nextStepMicros
 // Fresh mode destroys (fire and forget). Reuse mode never destroys the dev VM: reset() kills the managed processes
 // whose cwd is under /work and wipes /work (never /ndev), then re-probes.
 const softKills = new WeakMap<LaneCtx, Promise<{ ok: boolean; ms: number }>>();
+const destroys = new WeakMap<LaneCtx, Promise<void>>();   // destroy() registers the box before waitDestroyed can measure it
 function startTeardown(ctx: RunCtx, l: LaneCtx, vm: VmHandle): void {
   l.torn = true;
   ctx.emit("vm.destroying", l.lane.laneId, { sandboxId: vm.id });
@@ -480,7 +483,8 @@ function startTeardown(ctx: RunCtx, l: LaneCtx, vm: VmHandle): void {
       (e) => { ctx.log(`run ${ctx.run.runId}: dev VM process kill failed (${msg(e)})`); return { ok: false, ms: ctx.now() - t0 }; },
     ));
   } else {
-    void ctx.deps.vmApi.destroy(vm);
+    const p = ctx.deps.vmApi.destroy(vm).catch(() => {});   // fire and forget here; awaited before the measurement
+    destroys.set(l, p);
   }
 }
 async function awaitTeardown(ctx: RunCtx, l: LaneCtx): Promise<void> {
@@ -489,7 +493,7 @@ async function awaitTeardown(ctx: RunCtx, l: LaneCtx): Promise<void> {
   const reuse = ctx.deps.cfg.vmMode === "reuse";
   const r = reuse
     ? await (softKills.get(l) ?? Promise.resolve({ ok: false, ms: 0 }))
-    : await ctx.deps.vmApi.waitDestroyed(vm, 120_000);
+    : await (destroys.get(l) ?? Promise.resolve()).then(() => ctx.deps.vmApi.waitDestroyed(vm, 120_000));
   ctx.emit("vm.destroyed", l.lane.laneId, { sandboxId: vm.id, ms: r.ms, ok: r.ok, ...(reuse ? { soft: true } : {}) });
   if (!reuse) await emitCount(ctx);
 }

@@ -1,0 +1,4 @@
+id,merchant,type,amount
+a1,cafe,charge,0.10
+a2,cafe,charge,0.20
+a3,cafe,charge,0.30

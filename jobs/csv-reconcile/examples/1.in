@@ -1,0 +1,4 @@
+id,merchant,type,amount
+t1,acme,charge,12.30
+t2,beta,charge,2.50
+t3,acme,charge,3.00

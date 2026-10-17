@@ -65,6 +65,7 @@ bash scripts/deploy.sh   # deploys the committed tree (git archive HEAD) to Crea
 ## Limits (what we observed and what we did not)
 
 - **Stripe sandbox only.** Every PaymentIntent is in a Stripe sandbox account; no real money moves. The card is Stripe's `pm_card_visa`.
+- **Two Stripe accounts.** The Stripe Projects stack (CreateOS project) is linked under account `acct_1URdITQ4vfpdXOAJ`; the authorization holds and captures run on a separate Stripe sandbox account.
 - **Posted demo rates, not list prices.** The router's own token price is unverified; list prices are shown for comparison.
 - **The seal proof covers what it probes.** Three outbound paths fail from inside the VM after the egress rule is set. It does not prove that no other channel exists. On the dev VM the cloud metadata address answered from the VM's own network namespace; agent commands run under `unshare -n`, where it did not (exit 7).
 - **Timing varies with the router.** Single model turns took 5 to 30 s tonight, so the runaway's trip lands anywhere from about 58 s to 86 s of work in our runs; the 120 s time cap is the backstop.

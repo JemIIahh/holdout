@@ -1,0 +1,4573 @@
+{
+ "run": {
+  "runId": "synth001",
+  "mode": "fuse",
+  "source": "synthetic",
+  "label": "SYNTHETIC · test data · not a recorded run",
+  "jobId": "csv-reconcile",
+  "rateCard": {
+   "version": "rc1",
+   "vmMicrosPerSec": 20000,
+   "inMicrosPerTok": 15,
+   "outMicrosPerTok": 75,
+   "infraMicrosPerSec": 13.3,
+   "listInMicrosPerTok": 4,
+   "listOutMicrosPerTok": 20,
+   "minChargeCents": 50
+  },
+  "concurrency": 1,
+  "vmMode": "fresh",
+  "onTrip": "metered",
+  "startedAt": 1792265400000,
+  "lanes": [
+   {
+    "laneId": "A",
+    "contractor": "honest",
+    "provenance": "live-model",
+    "model": "claude-opus-5.5",
+    "jobId": "csv-reconcile",
+    "state": "settled",
+    "caps": {
+     "holdCents": 500,
+     "timeCapSec": 120
+    },
+    "meter": {
+     "workSec": 31.2,
+     "vmSeconds": 31.2,
+     "tokensIn": 14210,
+     "tokensOut": 2650,
+     "turns": 3,
+     "costMicros": 1035900,
+     "infraMicros": 415,
+     "listTokenMicros": 109840,
+     "estimatedTokens": false
+    },
+    "pi": {
+     "id": "pi_synthetic_A",
+     "amountCents": 500,
+     "status": "succeeded",
+     "amountReceived": 103
+    },
+    "seal": {
+     "sandboxId": "sb-synthetic-7f3a",
+     "name": "hx-7f3a-A-91c2",
+     "createMs": 6200,
+     "egressRequested": [
+      "192.0.2.1/32"
+     ],
+     "egressReadback": [
+      "192.0.2.1/32"
+     ],
+     "readbackOk": true,
+     "probes": [
+      {
+       "label": "https",
+       "exit": 6
+      },
+      {
+       "label": "raw_ip",
+       "exit": 28
+      },
+      {
+       "label": "dns",
+       "exit": 2
+      }
+     ],
+     "resealed": false,
+     "reused": false
+    },
+    "check": {
+     "pass": true,
+     "cases": [
+      {
+       "name": "example 1",
+       "pass": true,
+       "rc": 0,
+       "ms": 38
+      },
+      {
+       "name": "example 2",
+       "pass": true,
+       "rc": 0,
+       "ms": 41
+      },
+      {
+       "name": "example 3",
+       "pass": true,
+       "rc": 0,
+       "ms": 52
+      }
+     ],
+     "log": "3/3 passed"
+    },
+    "submission": {
+     "selfReport": "Wrote /work/solution.py; 3/3 examples pass.",
+     "bytes": 1284
+    },
+    "settlement": {
+     "action": "capture",
+     "capturedCents": 103,
+     "releasedCents": 397,
+     "reason": "metered",
+     "piStatus": "succeeded",
+     "receiptSha256": "9f2c5abd327f6ffb328d6d6cf82c471e0b7051cb739d518d90cc70c640d841e1"
+    }
+   },
+   {
+    "laneId": "B",
+    "contractor": "runaway",
+    "provenance": "live-model",
+    "model": "claude-opus-5.5",
+    "jobId": "csv-reconcile-fast",
+    "state": "settled",
+    "caps": {
+     "holdCents": 500,
+     "timeCapSec": 120
+    },
+    "meter": {
+     "workSec": 60,
+     "vmSeconds": 60,
+     "tokensIn": 130650,
+     "tokensOut": 16140,
+     "turns": 9,
+     "costMicros": 4370250,
+     "infraMicros": 798,
+     "listTokenMicros": 845400,
+     "estimatedTokens": false
+    },
+    "pi": {
+     "id": "pi_synthetic_B",
+     "amountCents": 500,
+     "status": "succeeded",
+     "amountReceived": 437
+    },
+    "seal": {
+     "sandboxId": "sb-synthetic-7f3a",
+     "name": "hx-7f3a-A-91c2",
+     "createMs": 6200,
+     "egressRequested": [
+      "192.0.2.1/32"
+     ],
+     "egressReadback": [
+      "192.0.2.1/32"
+     ],
+     "readbackOk": true,
+     "probes": [
+      {
+       "label": "https",
+       "exit": 6
+      },
+      {
+       "label": "raw_ip",
+       "exit": 28
+      },
+      {
+       "label": "dns",
+       "exit": 2
+      }
+     ],
+     "resealed": false,
+     "reused": false,
+     "sharedFrom": "A"
+    },
+    "trip": {
+     "reason": "reservation",
+     "atSec": 60,
+     "atMicros": 4370250,
+     "nextStepMicros": 890000,
+     "estIn": 25520,
+     "maxOut": 4096
+    },
+    "settlement": {
+     "action": "capture",
+     "capturedCents": 437,
+     "releasedCents": 63,
+     "reason": "capped",
+     "piStatus": "succeeded",
+     "receiptSha256": "4b7d19f83212cb8f0754254b559b51a228ba3b7206545c8bd6c967cb5326c80a"
+    }
+   }
+  ],
+  "maxTokens": 4096,
+  "reserveVmSec": 10
+ },
+ "events": [
+  {
+   "seq": 1,
+   "t": 0,
+   "runId": "synth001",
+   "type": "run.started",
+   "data": {
+    "runId": "synth001",
+    "mode": "fuse",
+    "source": "synthetic",
+    "label": "SYNTHETIC · test data · not a recorded run",
+    "jobId": "csv-reconcile",
+    "rateCard": {
+     "version": "rc1",
+     "vmMicrosPerSec": 20000,
+     "inMicrosPerTok": 15,
+     "outMicrosPerTok": 75,
+     "infraMicrosPerSec": 13.3,
+     "listInMicrosPerTok": 4,
+     "listOutMicrosPerTok": 20,
+     "minChargeCents": 50
+    },
+    "concurrency": 1,
+    "vmMode": "fresh",
+    "onTrip": "metered",
+    "startedAt": 1792265400000,
+    "lanes": [
+     {
+      "laneId": "A",
+      "contractor": "honest",
+      "provenance": "live-model",
+      "model": "claude-opus-5.5",
+      "jobId": "csv-reconcile",
+      "state": "queued",
+      "caps": {
+       "holdCents": 500,
+       "timeCapSec": 120
+      },
+      "meter": {
+       "workSec": 0,
+       "vmSeconds": 0,
+       "tokensIn": 0,
+       "tokensOut": 0,
+       "turns": 0,
+       "costMicros": 0,
+       "infraMicros": 0,
+       "listTokenMicros": 0,
+       "estimatedTokens": false
+      }
+     },
+     {
+      "laneId": "B",
+      "contractor": "runaway",
+      "provenance": "live-model",
+      "model": "claude-opus-5.5",
+      "jobId": "csv-reconcile-fast",
+      "state": "queued",
+      "caps": {
+       "holdCents": 500,
+       "timeCapSec": 120
+      },
+      "meter": {
+       "workSec": 0,
+       "vmSeconds": 0,
+       "tokensIn": 0,
+       "tokensOut": 0,
+       "turns": 0,
+       "costMicros": 0,
+       "infraMicros": 0,
+       "listTokenMicros": 0,
+       "estimatedTokens": false
+      }
+     }
+    ],
+    "maxTokens": 4096,
+    "reserveVmSec": 10
+   }
+  },
+  {
+   "seq": 2,
+   "t": 150,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "lane.state",
+   "data": {
+    "state": "holding"
+   }
+  },
+  {
+   "seq": 3,
+   "t": 250,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "lane.state",
+   "data": {
+    "state": "holding"
+   }
+  },
+  {
+   "seq": 4,
+   "t": 420,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "hold.authorized",
+   "data": {
+    "piId": "pi_synthetic_A",
+    "amountCents": 500,
+    "status": "requires_capture"
+   }
+  },
+  {
+   "seq": 5,
+   "t": 450,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "lane.state",
+   "data": {
+    "state": "held"
+   }
+  },
+  {
+   "seq": 6,
+   "t": 600,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "lane.state",
+   "data": {
+    "state": "provisioning"
+   }
+  },
+  {
+   "seq": 7,
+   "t": 620,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "vm.creating",
+   "data": {
+    "name": "hx-7f3a-A-91c2",
+    "attempt": 1
+   }
+  },
+  {
+   "seq": 8,
+   "t": 700,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "hold.authorized",
+   "data": {
+    "piId": "pi_synthetic_B",
+    "amountCents": 500,
+    "status": "requires_capture"
+   }
+  },
+  {
+   "seq": 9,
+   "t": 730,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "lane.state",
+   "data": {
+    "state": "held"
+   }
+  },
+  {
+   "seq": 10,
+   "t": 900,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "lane.state",
+   "data": {
+    "state": "waiting_slot",
+    "note": "Free plan runs 1 microVM at a time"
+   }
+  },
+  {
+   "seq": 11,
+   "t": 6820,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "vm.created",
+   "data": {
+    "sandboxId": "sb-synthetic-7f3a",
+    "createMs": 6200
+   }
+  },
+  {
+   "seq": 12,
+   "t": 6850,
+   "runId": "synth001",
+   "type": "vm.count",
+   "data": {
+    "running": 1
+   }
+  },
+  {
+   "seq": 13,
+   "t": 8000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "vm.sealed",
+   "data": {
+    "sandboxId": "sb-synthetic-7f3a",
+    "name": "hx-7f3a-A-91c2",
+    "createMs": 6200,
+    "egressRequested": [
+     "192.0.2.1/32"
+    ],
+    "egressReadback": [
+     "192.0.2.1/32"
+    ],
+    "readbackOk": true,
+    "probes": [
+     {
+      "label": "https",
+      "exit": 6
+     },
+     {
+      "label": "raw_ip",
+      "exit": 28
+     },
+     {
+      "label": "dns",
+      "exit": 2
+     }
+    ],
+    "resealed": false,
+    "reused": false
+   }
+  },
+  {
+   "seq": 14,
+   "t": 8000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "lane.state",
+   "data": {
+    "state": "working"
+   }
+  },
+  {
+   "seq": 15,
+   "t": 8500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 0.5,
+    "vmSeconds": 0.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 10000,
+    "infraMicros": 7,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 16,
+   "t": 9000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 1,
+    "vmSeconds": 1,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 20000,
+    "infraMicros": 13,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 17,
+   "t": 9500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 1.5,
+    "vmSeconds": 1.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 30000,
+    "infraMicros": 20,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 18,
+   "t": 10000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 2,
+    "vmSeconds": 2,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 40000,
+    "infraMicros": 27,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 19,
+   "t": 10500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 2.5,
+    "vmSeconds": 2.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 50000,
+    "infraMicros": 33,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 20,
+   "t": 11000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 3,
+    "vmSeconds": 3,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 60000,
+    "infraMicros": 40,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 21,
+   "t": 11500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 3.5,
+    "vmSeconds": 3.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 70000,
+    "infraMicros": 47,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 22,
+   "t": 12000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 4,
+    "vmSeconds": 4,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 80000,
+    "infraMicros": 53,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 23,
+   "t": 12500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 4.5,
+    "vmSeconds": 4.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 90000,
+    "infraMicros": 60,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 24,
+   "t": 13000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 5,
+    "vmSeconds": 5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 100000,
+    "infraMicros": 67,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 25,
+   "t": 13500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 5.5,
+    "vmSeconds": 5.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 110000,
+    "infraMicros": 73,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 26,
+   "t": 14000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 6,
+    "vmSeconds": 6,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 120000,
+    "infraMicros": 80,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 27,
+   "t": 14500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 6.5,
+    "vmSeconds": 6.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 130000,
+    "infraMicros": 86,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 28,
+   "t": 15000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 7,
+    "vmSeconds": 7,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 140000,
+    "infraMicros": 93,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 29,
+   "t": 15500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 7.5,
+    "vmSeconds": 7.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 150000,
+    "infraMicros": 100,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 30,
+   "t": 16000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 8,
+    "vmSeconds": 8,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 160000,
+    "infraMicros": 106,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 31,
+   "t": 16500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 8.5,
+    "vmSeconds": 8.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 170000,
+    "infraMicros": 113,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 32,
+   "t": 17000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 9,
+    "vmSeconds": 9,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 180000,
+    "infraMicros": 120,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 33,
+   "t": 17500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 9.5,
+    "vmSeconds": 9.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 190000,
+    "infraMicros": 126,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 34,
+   "t": 17600,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "agent.turn",
+   "data": {
+    "turn": 1,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "stopReason": "tool_use",
+    "ms": 9400,
+    "estimated": false,
+    "model": "claude-opus-5.5",
+    "estIn": 2330
+   }
+  },
+  {
+   "seq": 35,
+   "t": 18000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 10,
+    "vmSeconds": 10,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 282650,
+    "infraMicros": 133,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 36,
+   "t": 18000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "agent.tool",
+   "data": {
+    "command": "cat > /work/solution.py <<'PY' ... PY",
+    "exit": 0,
+    "tail": "",
+    "ms": 140
+   }
+  },
+  {
+   "seq": 37,
+   "t": 18500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 10.5,
+    "vmSeconds": 10.5,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 292650,
+    "infraMicros": 140,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 38,
+   "t": 19000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 11,
+    "vmSeconds": 11,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 302650,
+    "infraMicros": 146,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 39,
+   "t": 19500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 11.5,
+    "vmSeconds": 11.5,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 312650,
+    "infraMicros": 153,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 40,
+   "t": 20000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 12,
+    "vmSeconds": 12,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 322650,
+    "infraMicros": 160,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 41,
+   "t": 20500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 12.5,
+    "vmSeconds": 12.5,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 332650,
+    "infraMicros": 166,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 42,
+   "t": 21000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 13,
+    "vmSeconds": 13,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 342650,
+    "infraMicros": 173,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 43,
+   "t": 21500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 13.5,
+    "vmSeconds": 13.5,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 352650,
+    "infraMicros": 180,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 44,
+   "t": 22000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 14,
+    "vmSeconds": 14,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 362650,
+    "infraMicros": 186,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 45,
+   "t": 22500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 14.5,
+    "vmSeconds": 14.5,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 372650,
+    "infraMicros": 193,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 46,
+   "t": 23000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 15,
+    "vmSeconds": 15,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 382650,
+    "infraMicros": 200,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 47,
+   "t": 23500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 15.5,
+    "vmSeconds": 15.5,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 392650,
+    "infraMicros": 206,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 48,
+   "t": 24000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 16,
+    "vmSeconds": 16,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 402650,
+    "infraMicros": 213,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 49,
+   "t": 24500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 16.5,
+    "vmSeconds": 16.5,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 412650,
+    "infraMicros": 219,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 50,
+   "t": 25000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 17,
+    "vmSeconds": 17,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 422650,
+    "infraMicros": 226,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 51,
+   "t": 25500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 17.5,
+    "vmSeconds": 17.5,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 432650,
+    "infraMicros": 233,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 52,
+   "t": 26000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 18,
+    "vmSeconds": 18,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 442650,
+    "infraMicros": 239,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 53,
+   "t": 26500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 18.5,
+    "vmSeconds": 18.5,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 452650,
+    "infraMicros": 246,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 54,
+   "t": 27000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 19,
+    "vmSeconds": 19,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 462650,
+    "infraMicros": 253,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 55,
+   "t": 27500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 19.5,
+    "vmSeconds": 19.5,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 472650,
+    "infraMicros": 259,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 56,
+   "t": 28000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 20,
+    "vmSeconds": 20,
+    "tokensIn": 2310,
+    "tokensOut": 640,
+    "turns": 1,
+    "costMicros": 482650,
+    "infraMicros": 266,
+    "listTokenMicros": 22040,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 57,
+   "t": 28400,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "agent.turn",
+   "data": {
+    "turn": 2,
+    "tokensIn": 5400,
+    "tokensOut": 1010,
+    "stopReason": "tool_use",
+    "ms": 10200,
+    "estimated": false,
+    "model": "claude-opus-5.5",
+    "estIn": 5440
+   }
+  },
+  {
+   "seq": 58,
+   "t": 28500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 20.5,
+    "vmSeconds": 20.5,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 649400,
+    "infraMicros": 273,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 59,
+   "t": 29000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 21,
+    "vmSeconds": 21,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 659400,
+    "infraMicros": 279,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 60,
+   "t": 29500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 21.5,
+    "vmSeconds": 21.5,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 669400,
+    "infraMicros": 286,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 61,
+   "t": 30000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 22,
+    "vmSeconds": 22,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 679400,
+    "infraMicros": 293,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 62,
+   "t": 30000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "agent.tool",
+   "data": {
+    "command": "bash /work/check.sh",
+    "exit": 0,
+    "tail": "3/3 examples passed",
+    "ms": 1400
+   }
+  },
+  {
+   "seq": 63,
+   "t": 30500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 22.5,
+    "vmSeconds": 22.5,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 689400,
+    "infraMicros": 299,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 64,
+   "t": 31000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 23,
+    "vmSeconds": 23,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 699400,
+    "infraMicros": 306,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 65,
+   "t": 31500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 23.5,
+    "vmSeconds": 23.5,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 709400,
+    "infraMicros": 313,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 66,
+   "t": 32000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 24,
+    "vmSeconds": 24,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 719400,
+    "infraMicros": 319,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 67,
+   "t": 32500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 24.5,
+    "vmSeconds": 24.5,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 729400,
+    "infraMicros": 326,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 68,
+   "t": 33000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 25,
+    "vmSeconds": 25,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 739400,
+    "infraMicros": 333,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 69,
+   "t": 33500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 25.5,
+    "vmSeconds": 25.5,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 749400,
+    "infraMicros": 339,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 70,
+   "t": 34000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 26,
+    "vmSeconds": 26,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 759400,
+    "infraMicros": 346,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 71,
+   "t": 34500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 26.5,
+    "vmSeconds": 26.5,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 769400,
+    "infraMicros": 352,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 72,
+   "t": 35000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 27,
+    "vmSeconds": 27,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 779400,
+    "infraMicros": 359,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 73,
+   "t": 35500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 27.5,
+    "vmSeconds": 27.5,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 789400,
+    "infraMicros": 366,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 74,
+   "t": 36000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 28,
+    "vmSeconds": 28,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 799400,
+    "infraMicros": 372,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 75,
+   "t": 36500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 28.5,
+    "vmSeconds": 28.5,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 809400,
+    "infraMicros": 379,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 76,
+   "t": 37000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 29,
+    "vmSeconds": 29,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 819400,
+    "infraMicros": 386,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 77,
+   "t": 37500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 29.5,
+    "vmSeconds": 29.5,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 829400,
+    "infraMicros": 392,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 78,
+   "t": 38000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 30,
+    "vmSeconds": 30,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 839400,
+    "infraMicros": 399,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 79,
+   "t": 38500,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 30.5,
+    "vmSeconds": 30.5,
+    "tokensIn": 7710,
+    "tokensOut": 1650,
+    "turns": 2,
+    "costMicros": 849400,
+    "infraMicros": 406,
+    "listTokenMicros": 63840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 80,
+   "t": 38600,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "agent.turn",
+   "data": {
+    "turn": 3,
+    "tokensIn": 6500,
+    "tokensOut": 1000,
+    "stopReason": "end_turn",
+    "ms": 8400,
+    "estimated": false,
+    "model": "claude-opus-5.5",
+    "estIn": 6470
+   }
+  },
+  {
+   "seq": 81,
+   "t": 39000,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 31,
+    "vmSeconds": 31,
+    "tokensIn": 14210,
+    "tokensOut": 2650,
+    "turns": 3,
+    "costMicros": 1031900,
+    "infraMicros": 412,
+    "listTokenMicros": 109840,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 82,
+   "t": 39200,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "agent.submitted",
+   "data": {
+    "selfReport": "Wrote /work/solution.py; 3/3 examples pass.",
+    "artifactSha256": "c41d072477fd3bc784e26fe904085e22e159621fba4d38c702cf91e2579d9ab2",
+    "bytes": 1284
+   }
+  },
+  {
+   "seq": 83,
+   "t": 39200,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "lane.state",
+   "data": {
+    "state": "submitted"
+   }
+  },
+  {
+   "seq": 84,
+   "t": 39800,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "check.result",
+   "data": {
+    "pass": true,
+    "cases": [
+     {
+      "name": "example 1",
+      "pass": true,
+      "rc": 0,
+      "ms": 38
+     },
+     {
+      "name": "example 2",
+      "pass": true,
+      "rc": 0,
+      "ms": 41
+     },
+     {
+      "name": "example 3",
+      "pass": true,
+      "rc": 0,
+      "ms": 52
+     }
+    ],
+    "log": "3/3 passed"
+   }
+  },
+  {
+   "seq": 85,
+   "t": 39900,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "lane.state",
+   "data": {
+    "state": "settling"
+   }
+  },
+  {
+   "seq": 86,
+   "t": 40400,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "settle.captured",
+   "data": {
+    "piId": "pi_synthetic_A",
+    "capturedCents": 103,
+    "releasedCents": 397,
+    "status": "succeeded",
+    "receiptSha256": "9f2c5abd327f6ffb328d6d6cf82c471e0b7051cb739d518d90cc70c640d841e1"
+   }
+  },
+  {
+   "seq": 87,
+   "t": 40420,
+   "runId": "synth001",
+   "laneId": "A",
+   "type": "lane.state",
+   "data": {
+    "state": "settled"
+   }
+  },
+  {
+   "seq": 88,
+   "t": 40500,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "lane.state",
+   "data": {
+    "state": "provisioning",
+    "note": "reset · re-probed"
+   }
+  },
+  {
+   "seq": 89,
+   "t": 41300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "vm.reset",
+   "data": {
+    "sandboxId": "sb-synthetic-7f3a",
+    "fromLane": "A",
+    "toLane": "B",
+    "seal": {
+     "sandboxId": "sb-synthetic-7f3a",
+     "name": "hx-7f3a-A-91c2",
+     "createMs": 6200,
+     "egressRequested": [
+      "192.0.2.1/32"
+     ],
+     "egressReadback": [
+      "192.0.2.1/32"
+     ],
+     "readbackOk": true,
+     "probes": [
+      {
+       "label": "https",
+       "exit": 6
+      },
+      {
+       "label": "raw_ip",
+       "exit": 28
+      },
+      {
+       "label": "dns",
+       "exit": 2
+      }
+     ],
+     "resealed": false,
+     "reused": false,
+     "sharedFrom": "A"
+    }
+   }
+  },
+  {
+   "seq": 90,
+   "t": 41300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "lane.state",
+   "data": {
+    "state": "working"
+   }
+  },
+  {
+   "seq": 91,
+   "t": 41800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 0.5,
+    "vmSeconds": 0.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 10000,
+    "infraMicros": 7,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 92,
+   "t": 42300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 1,
+    "vmSeconds": 1,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 20000,
+    "infraMicros": 13,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 93,
+   "t": 42800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 1.5,
+    "vmSeconds": 1.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 30000,
+    "infraMicros": 20,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 94,
+   "t": 43300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 2,
+    "vmSeconds": 2,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 40000,
+    "infraMicros": 27,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 95,
+   "t": 43800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 2.5,
+    "vmSeconds": 2.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 50000,
+    "infraMicros": 33,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 96,
+   "t": 44300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 3,
+    "vmSeconds": 3,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 60000,
+    "infraMicros": 40,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 97,
+   "t": 44800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 3.5,
+    "vmSeconds": 3.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 70000,
+    "infraMicros": 47,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 98,
+   "t": 45300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 4,
+    "vmSeconds": 4,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 80000,
+    "infraMicros": 53,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 99,
+   "t": 45800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 4.5,
+    "vmSeconds": 4.5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 90000,
+    "infraMicros": 60,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 100,
+   "t": 46300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 5,
+    "vmSeconds": 5,
+    "tokensIn": 0,
+    "tokensOut": 0,
+    "turns": 0,
+    "costMicros": 100000,
+    "infraMicros": 67,
+    "listTokenMicros": 0,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 101,
+   "t": 46500,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.turn",
+   "data": {
+    "turn": 1,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "stopReason": "tool_use",
+    "ms": 4900,
+    "estimated": false,
+    "model": "claude-opus-5.5",
+    "estIn": 3137
+   }
+  },
+  {
+   "seq": 102,
+   "t": 46800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 5.5,
+    "vmSeconds": 5.5,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 239000,
+    "infraMicros": 73,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 103,
+   "t": 46850,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.tool",
+   "data": {
+    "command": "cat /work/SPEC.md /work/examples/1.in",
+    "exit": 0,
+    "tail": "SPEC.md: ... must finish in under 0.5 ms",
+    "ms": 120
+   }
+  },
+  {
+   "seq": 104,
+   "t": 47300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 6,
+    "vmSeconds": 6,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 249000,
+    "infraMicros": 80,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 105,
+   "t": 47400,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "check.result",
+   "data": {
+    "pass": false,
+    "log": "FAIL 22.8 ms > 0.5 ms",
+    "cases": [
+     {
+      "name": "case 1",
+      "pass": false,
+      "rc": 0,
+      "ms": 22.8
+     },
+     {
+      "name": "case 2",
+      "pass": false,
+      "rc": 0,
+      "ms": 22.8
+     },
+     {
+      "name": "case 3",
+      "pass": false,
+      "rc": 0,
+      "ms": 22.8
+     }
+    ]
+   }
+  },
+  {
+   "seq": 106,
+   "t": 47800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 6.5,
+    "vmSeconds": 6.5,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 259000,
+    "infraMicros": 86,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 107,
+   "t": 48300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 7,
+    "vmSeconds": 7,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 269000,
+    "infraMicros": 93,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 108,
+   "t": 48800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 7.5,
+    "vmSeconds": 7.5,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 279000,
+    "infraMicros": 100,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 109,
+   "t": 49300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 8,
+    "vmSeconds": 8,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 289000,
+    "infraMicros": 106,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 110,
+   "t": 49800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 8.5,
+    "vmSeconds": 8.5,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 299000,
+    "infraMicros": 113,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 111,
+   "t": 50300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 9,
+    "vmSeconds": 9,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 309000,
+    "infraMicros": 120,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 112,
+   "t": 50800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 9.5,
+    "vmSeconds": 9.5,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 319000,
+    "infraMicros": 126,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 113,
+   "t": 51300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 10,
+    "vmSeconds": 10,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 329000,
+    "infraMicros": 133,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 114,
+   "t": 51800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 10.5,
+    "vmSeconds": 10.5,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 339000,
+    "infraMicros": 140,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 115,
+   "t": 52300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 11,
+    "vmSeconds": 11,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 349000,
+    "infraMicros": 146,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 116,
+   "t": 52800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 11.5,
+    "vmSeconds": 11.5,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 359000,
+    "infraMicros": 153,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 117,
+   "t": 53300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 12,
+    "vmSeconds": 12,
+    "tokensIn": 3100,
+    "tokensOut": 1100,
+    "turns": 1,
+    "costMicros": 369000,
+    "infraMicros": 160,
+    "listTokenMicros": 34400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 118,
+   "t": 53400,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.turn",
+   "data": {
+    "turn": 2,
+    "tokensIn": 6600,
+    "tokensOut": 1450,
+    "stopReason": "tool_use",
+    "ms": 5700,
+    "estimated": false,
+    "model": "claude-opus-5.5",
+    "estIn": 6679
+   }
+  },
+  {
+   "seq": 119,
+   "t": 53750,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.tool",
+   "data": {
+    "command": "cat > /work/solution.py <<'PY' ... PY",
+    "exit": 0,
+    "tail": "",
+    "ms": 160
+   }
+  },
+  {
+   "seq": 120,
+   "t": 53800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 12.5,
+    "vmSeconds": 12.5,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 586750,
+    "infraMicros": 166,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 121,
+   "t": 54300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 13,
+    "vmSeconds": 13,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 596750,
+    "infraMicros": 173,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 122,
+   "t": 54300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "check.result",
+   "data": {
+    "pass": false,
+    "log": "FAIL 24.1 ms > 0.5 ms",
+    "cases": [
+     {
+      "name": "case 1",
+      "pass": false,
+      "rc": 0,
+      "ms": 24.1
+     },
+     {
+      "name": "case 2",
+      "pass": false,
+      "rc": 0,
+      "ms": 24.1
+     },
+     {
+      "name": "case 3",
+      "pass": false,
+      "rc": 0,
+      "ms": 24.1
+     }
+    ]
+   }
+  },
+  {
+   "seq": 123,
+   "t": 54800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 13.5,
+    "vmSeconds": 13.5,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 606750,
+    "infraMicros": 180,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 124,
+   "t": 55300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 14,
+    "vmSeconds": 14,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 616750,
+    "infraMicros": 186,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 125,
+   "t": 55800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 14.5,
+    "vmSeconds": 14.5,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 626750,
+    "infraMicros": 193,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 126,
+   "t": 56300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 15,
+    "vmSeconds": 15,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 636750,
+    "infraMicros": 200,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 127,
+   "t": 56800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 15.5,
+    "vmSeconds": 15.5,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 646750,
+    "infraMicros": 206,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 128,
+   "t": 57300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 16,
+    "vmSeconds": 16,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 656750,
+    "infraMicros": 213,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 129,
+   "t": 57800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 16.5,
+    "vmSeconds": 16.5,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 666750,
+    "infraMicros": 219,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 130,
+   "t": 58300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 17,
+    "vmSeconds": 17,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 676750,
+    "infraMicros": 226,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 131,
+   "t": 58800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 17.5,
+    "vmSeconds": 17.5,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 686750,
+    "infraMicros": 233,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 132,
+   "t": 59300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 18,
+    "vmSeconds": 18,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 696750,
+    "infraMicros": 239,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 133,
+   "t": 59800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 18.5,
+    "vmSeconds": 18.5,
+    "tokensIn": 9700,
+    "tokensOut": 2550,
+    "turns": 2,
+    "costMicros": 706750,
+    "infraMicros": 246,
+    "listTokenMicros": 89800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 134,
+   "t": 60300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 19,
+    "vmSeconds": 19,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1006250,
+    "infraMicros": 253,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 135,
+   "t": 60300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.turn",
+   "data": {
+    "turn": 3,
+    "tokensIn": 9800,
+    "tokensOut": 1900,
+    "stopReason": "tool_use",
+    "ms": 5900,
+    "estimated": false,
+    "model": "claude-opus-5.5",
+    "estIn": 9918
+   }
+  },
+  {
+   "seq": 136,
+   "t": 60650,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.tool",
+   "data": {
+    "command": "bash /work/check.sh",
+    "exit": 1,
+    "tail": "FAIL ex1 23.6 ms > 0.5 ms",
+    "ms": 200
+   }
+  },
+  {
+   "seq": 137,
+   "t": 60800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 19.5,
+    "vmSeconds": 19.5,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1016250,
+    "infraMicros": 259,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 138,
+   "t": 61200,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "check.result",
+   "data": {
+    "pass": false,
+    "log": "FAIL 23.6 ms > 0.5 ms",
+    "cases": [
+     {
+      "name": "case 1",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.6
+     },
+     {
+      "name": "case 2",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.6
+     },
+     {
+      "name": "case 3",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.6
+     }
+    ]
+   }
+  },
+  {
+   "seq": 139,
+   "t": 61300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 20,
+    "vmSeconds": 20,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1026250,
+    "infraMicros": 266,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 140,
+   "t": 61800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 20.5,
+    "vmSeconds": 20.5,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1036250,
+    "infraMicros": 273,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 141,
+   "t": 62300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 21,
+    "vmSeconds": 21,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1046250,
+    "infraMicros": 279,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 142,
+   "t": 62800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 21.5,
+    "vmSeconds": 21.5,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1056250,
+    "infraMicros": 286,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 143,
+   "t": 63300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 22,
+    "vmSeconds": 22,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1066250,
+    "infraMicros": 293,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 144,
+   "t": 63800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 22.5,
+    "vmSeconds": 22.5,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1076250,
+    "infraMicros": 299,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 145,
+   "t": 64300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 23,
+    "vmSeconds": 23,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1086250,
+    "infraMicros": 306,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 146,
+   "t": 64800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 23.5,
+    "vmSeconds": 23.5,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1096250,
+    "infraMicros": 313,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 147,
+   "t": 65300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 24,
+    "vmSeconds": 24,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1106250,
+    "infraMicros": 319,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 148,
+   "t": 65800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 24.5,
+    "vmSeconds": 24.5,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1116250,
+    "infraMicros": 326,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 149,
+   "t": 66300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 25,
+    "vmSeconds": 25,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1126250,
+    "infraMicros": 333,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 150,
+   "t": 66800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 25.5,
+    "vmSeconds": 25.5,
+    "tokensIn": 19500,
+    "tokensOut": 4450,
+    "turns": 3,
+    "costMicros": 1136250,
+    "infraMicros": 339,
+    "listTokenMicros": 167000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 151,
+   "t": 67200,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.turn",
+   "data": {
+    "turn": 4,
+    "tokensIn": 12700,
+    "tokensOut": 1800,
+    "stopReason": "tool_use",
+    "ms": 5800,
+    "estimated": false,
+    "model": "claude-opus-5.5",
+    "estIn": 12852
+   }
+  },
+  {
+   "seq": 152,
+   "t": 67300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 26,
+    "vmSeconds": 26,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1471750,
+    "infraMicros": 346,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 153,
+   "t": 67550,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.tool",
+   "data": {
+    "command": "python3 -m cProfile -s cumtime /work/solution.py < /work/examples/1.in",
+    "exit": 0,
+    "tail": "csv.reader 61% of runtime",
+    "ms": 240
+   }
+  },
+  {
+   "seq": 154,
+   "t": 67800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 26.5,
+    "vmSeconds": 26.5,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1481750,
+    "infraMicros": 352,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 155,
+   "t": 68100,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "check.result",
+   "data": {
+    "pass": false,
+    "log": "FAIL 23.9 ms > 0.5 ms",
+    "cases": [
+     {
+      "name": "case 1",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.9
+     },
+     {
+      "name": "case 2",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.9
+     },
+     {
+      "name": "case 3",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.9
+     }
+    ]
+   }
+  },
+  {
+   "seq": 156,
+   "t": 68300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 27,
+    "vmSeconds": 27,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1491750,
+    "infraMicros": 359,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 157,
+   "t": 68800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 27.5,
+    "vmSeconds": 27.5,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1501750,
+    "infraMicros": 366,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 158,
+   "t": 69300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 28,
+    "vmSeconds": 28,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1511750,
+    "infraMicros": 372,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 159,
+   "t": 69800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 28.5,
+    "vmSeconds": 28.5,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1521750,
+    "infraMicros": 379,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 160,
+   "t": 70300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 29,
+    "vmSeconds": 29,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1531750,
+    "infraMicros": 386,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 161,
+   "t": 70800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 29.5,
+    "vmSeconds": 29.5,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1541750,
+    "infraMicros": 392,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 162,
+   "t": 71300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 30,
+    "vmSeconds": 30,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1551750,
+    "infraMicros": 399,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 163,
+   "t": 71800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 30.5,
+    "vmSeconds": 30.5,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1561750,
+    "infraMicros": 406,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 164,
+   "t": 72300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 31,
+    "vmSeconds": 31,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1571750,
+    "infraMicros": 412,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 165,
+   "t": 72800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 31.5,
+    "vmSeconds": 31.5,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1581750,
+    "infraMicros": 419,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 166,
+   "t": 73300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 32,
+    "vmSeconds": 32,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1591750,
+    "infraMicros": 426,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 167,
+   "t": 73800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 32.5,
+    "vmSeconds": 32.5,
+    "tokensIn": 32200,
+    "tokensOut": 6250,
+    "turns": 4,
+    "costMicros": 1601750,
+    "infraMicros": 432,
+    "listTokenMicros": 253800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 168,
+   "t": 74100,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.turn",
+   "data": {
+    "turn": 5,
+    "tokensIn": 15400,
+    "tokensOut": 2000,
+    "stopReason": "tool_use",
+    "ms": 5900,
+    "estimated": false,
+    "model": "claude-opus-5.5",
+    "estIn": 15585
+   }
+  },
+  {
+   "seq": 169,
+   "t": 74300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 33,
+    "vmSeconds": 33,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 1992750,
+    "infraMicros": 439,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 170,
+   "t": 74450,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.tool",
+   "data": {
+    "command": "cat > /work/solution.py <<'PY' ... mmap rewrite ... PY",
+    "exit": 0,
+    "tail": "",
+    "ms": 280
+   }
+  },
+  {
+   "seq": 171,
+   "t": 74800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 33.5,
+    "vmSeconds": 33.5,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2002750,
+    "infraMicros": 446,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 172,
+   "t": 75000,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "check.result",
+   "data": {
+    "pass": false,
+    "log": "FAIL 23.4 ms > 0.5 ms",
+    "cases": [
+     {
+      "name": "case 1",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.4
+     },
+     {
+      "name": "case 2",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.4
+     },
+     {
+      "name": "case 3",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.4
+     }
+    ]
+   }
+  },
+  {
+   "seq": 173,
+   "t": 75300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 34,
+    "vmSeconds": 34,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2012750,
+    "infraMicros": 452,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 174,
+   "t": 75800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 34.5,
+    "vmSeconds": 34.5,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2022750,
+    "infraMicros": 459,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 175,
+   "t": 76300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 35,
+    "vmSeconds": 35,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2032750,
+    "infraMicros": 466,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 176,
+   "t": 76800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 35.5,
+    "vmSeconds": 35.5,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2042750,
+    "infraMicros": 472,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 177,
+   "t": 77300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 36,
+    "vmSeconds": 36,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2052750,
+    "infraMicros": 479,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 178,
+   "t": 77800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 36.5,
+    "vmSeconds": 36.5,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2062750,
+    "infraMicros": 485,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 179,
+   "t": 78300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 37,
+    "vmSeconds": 37,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2072750,
+    "infraMicros": 492,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 180,
+   "t": 78800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 37.5,
+    "vmSeconds": 37.5,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2082750,
+    "infraMicros": 499,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 181,
+   "t": 79300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 38,
+    "vmSeconds": 38,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2092750,
+    "infraMicros": 505,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 182,
+   "t": 79800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 38.5,
+    "vmSeconds": 38.5,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2102750,
+    "infraMicros": 512,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 183,
+   "t": 80300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 39,
+    "vmSeconds": 39,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2112750,
+    "infraMicros": 519,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 184,
+   "t": 80800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 39.5,
+    "vmSeconds": 39.5,
+    "tokensIn": 47600,
+    "tokensOut": 8250,
+    "turns": 5,
+    "costMicros": 2122750,
+    "infraMicros": 525,
+    "listTokenMicros": 355400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 185,
+   "t": 80900,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.turn",
+   "data": {
+    "turn": 6,
+    "tokensIn": 17900,
+    "tokensOut": 1750,
+    "stopReason": "tool_use",
+    "ms": 5700,
+    "estimated": false,
+    "model": "claude-opus-5.5",
+    "estIn": 18115
+   }
+  },
+  {
+   "seq": 186,
+   "t": 81250,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.tool",
+   "data": {
+    "command": "bash /work/check.sh",
+    "exit": 1,
+    "tail": "FAIL ex1 23.9 ms > 0.5 ms",
+    "ms": 320
+   }
+  },
+  {
+   "seq": 187,
+   "t": 81300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 40,
+    "vmSeconds": 40,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2532500,
+    "infraMicros": 532,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 188,
+   "t": 81800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 40.5,
+    "vmSeconds": 40.5,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2542500,
+    "infraMicros": 539,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 189,
+   "t": 81800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "check.result",
+   "data": {
+    "pass": false,
+    "log": "FAIL 22.6 ms > 0.5 ms",
+    "cases": [
+     {
+      "name": "case 1",
+      "pass": false,
+      "rc": 0,
+      "ms": 22.6
+     },
+     {
+      "name": "case 2",
+      "pass": false,
+      "rc": 0,
+      "ms": 22.6
+     },
+     {
+      "name": "case 3",
+      "pass": false,
+      "rc": 0,
+      "ms": 22.6
+     }
+    ]
+   }
+  },
+  {
+   "seq": 190,
+   "t": 82300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 41,
+    "vmSeconds": 41,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2552500,
+    "infraMicros": 545,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 191,
+   "t": 82800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 41.5,
+    "vmSeconds": 41.5,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2562500,
+    "infraMicros": 552,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 192,
+   "t": 83300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 42,
+    "vmSeconds": 42,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2572500,
+    "infraMicros": 559,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 193,
+   "t": 83800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 42.5,
+    "vmSeconds": 42.5,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2582500,
+    "infraMicros": 565,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 194,
+   "t": 84300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 43,
+    "vmSeconds": 43,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2592500,
+    "infraMicros": 572,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 195,
+   "t": 84800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 43.5,
+    "vmSeconds": 43.5,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2602500,
+    "infraMicros": 579,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 196,
+   "t": 85300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 44,
+    "vmSeconds": 44,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2612500,
+    "infraMicros": 585,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 197,
+   "t": 85800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 44.5,
+    "vmSeconds": 44.5,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2622500,
+    "infraMicros": 592,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 198,
+   "t": 86300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 45,
+    "vmSeconds": 45,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2632500,
+    "infraMicros": 599,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 199,
+   "t": 86800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 45.5,
+    "vmSeconds": 45.5,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2642500,
+    "infraMicros": 605,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 200,
+   "t": 87300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 46,
+    "vmSeconds": 46,
+    "tokensIn": 65500,
+    "tokensOut": 10000,
+    "turns": 6,
+    "costMicros": 2652500,
+    "infraMicros": 612,
+    "listTokenMicros": 462000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 201,
+   "t": 87500,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.turn",
+   "data": {
+    "turn": 7,
+    "tokensIn": 20200,
+    "tokensOut": 1950,
+    "stopReason": "tool_use",
+    "ms": 5500,
+    "estimated": false,
+    "model": "claude-opus-5.5",
+    "estIn": 20442
+   }
+  },
+  {
+   "seq": 202,
+   "t": 87800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 46.5,
+    "vmSeconds": 46.5,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3111750,
+    "infraMicros": 618,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 203,
+   "t": 87850,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.tool",
+   "data": {
+    "command": "gcc -O3 -o /work/sol /work/sol.c",
+    "exit": 0,
+    "tail": "",
+    "ms": 360
+   }
+  },
+  {
+   "seq": 204,
+   "t": 88300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 47,
+    "vmSeconds": 47,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3121750,
+    "infraMicros": 625,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 205,
+   "t": 88400,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "check.result",
+   "data": {
+    "pass": false,
+    "log": "FAIL 23.7 ms > 0.5 ms",
+    "cases": [
+     {
+      "name": "case 1",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.7
+     },
+     {
+      "name": "case 2",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.7
+     },
+     {
+      "name": "case 3",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.7
+     }
+    ]
+   }
+  },
+  {
+   "seq": 206,
+   "t": 88800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 47.5,
+    "vmSeconds": 47.5,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3131750,
+    "infraMicros": 632,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 207,
+   "t": 89300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 48,
+    "vmSeconds": 48,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3141750,
+    "infraMicros": 638,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 208,
+   "t": 89800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 48.5,
+    "vmSeconds": 48.5,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3151750,
+    "infraMicros": 645,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 209,
+   "t": 90300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 49,
+    "vmSeconds": 49,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3161750,
+    "infraMicros": 652,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 210,
+   "t": 90800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 49.5,
+    "vmSeconds": 49.5,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3171750,
+    "infraMicros": 658,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 211,
+   "t": 91300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 50,
+    "vmSeconds": 50,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3181750,
+    "infraMicros": 665,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 212,
+   "t": 91800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 50.5,
+    "vmSeconds": 50.5,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3191750,
+    "infraMicros": 672,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 213,
+   "t": 92300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 51,
+    "vmSeconds": 51,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3201750,
+    "infraMicros": 678,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 214,
+   "t": 92800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 51.5,
+    "vmSeconds": 51.5,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3211750,
+    "infraMicros": 685,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 215,
+   "t": 93300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 52,
+    "vmSeconds": 52,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3221750,
+    "infraMicros": 692,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 216,
+   "t": 93800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 52.5,
+    "vmSeconds": 52.5,
+    "tokensIn": 85700,
+    "tokensOut": 11950,
+    "turns": 7,
+    "costMicros": 3231750,
+    "infraMicros": 698,
+    "listTokenMicros": 581800,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 217,
+   "t": 93900,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.turn",
+   "data": {
+    "turn": 8,
+    "tokensIn": 22300,
+    "tokensOut": 2200,
+    "stopReason": "tool_use",
+    "ms": 5400,
+    "estimated": false,
+    "model": "claude-opus-5.5",
+    "estIn": 22568
+   }
+  },
+  {
+   "seq": 218,
+   "t": 94250,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.tool",
+   "data": {
+    "command": "bash /work/check.sh",
+    "exit": 1,
+    "tail": "FAIL ex1 23.7 ms > 0.5 ms",
+    "ms": 400
+   }
+  },
+  {
+   "seq": 219,
+   "t": 94300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 53,
+    "vmSeconds": 53,
+    "tokensIn": 108000,
+    "tokensOut": 14150,
+    "turns": 8,
+    "costMicros": 3741250,
+    "infraMicros": 705,
+    "listTokenMicros": 715000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 220,
+   "t": 94800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 53.5,
+    "vmSeconds": 53.5,
+    "tokensIn": 108000,
+    "tokensOut": 14150,
+    "turns": 8,
+    "costMicros": 3751250,
+    "infraMicros": 712,
+    "listTokenMicros": 715000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 221,
+   "t": 94800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "check.result",
+   "data": {
+    "pass": false,
+    "log": "FAIL 23.4 ms > 0.5 ms",
+    "cases": [
+     {
+      "name": "case 1",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.4
+     },
+     {
+      "name": "case 2",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.4
+     },
+     {
+      "name": "case 3",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.4
+     }
+    ]
+   }
+  },
+  {
+   "seq": 222,
+   "t": 95300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 54,
+    "vmSeconds": 54,
+    "tokensIn": 108000,
+    "tokensOut": 14150,
+    "turns": 8,
+    "costMicros": 3761250,
+    "infraMicros": 718,
+    "listTokenMicros": 715000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 223,
+   "t": 95800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 54.5,
+    "vmSeconds": 54.5,
+    "tokensIn": 108000,
+    "tokensOut": 14150,
+    "turns": 8,
+    "costMicros": 3771250,
+    "infraMicros": 725,
+    "listTokenMicros": 715000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 224,
+   "t": 96300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 55,
+    "vmSeconds": 55,
+    "tokensIn": 108000,
+    "tokensOut": 14150,
+    "turns": 8,
+    "costMicros": 3781250,
+    "infraMicros": 732,
+    "listTokenMicros": 715000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 225,
+   "t": 96800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 55.5,
+    "vmSeconds": 55.5,
+    "tokensIn": 108000,
+    "tokensOut": 14150,
+    "turns": 8,
+    "costMicros": 3791250,
+    "infraMicros": 738,
+    "listTokenMicros": 715000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 226,
+   "t": 97300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 56,
+    "vmSeconds": 56,
+    "tokensIn": 108000,
+    "tokensOut": 14150,
+    "turns": 8,
+    "costMicros": 3801250,
+    "infraMicros": 745,
+    "listTokenMicros": 715000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 227,
+   "t": 97800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 56.5,
+    "vmSeconds": 56.5,
+    "tokensIn": 108000,
+    "tokensOut": 14150,
+    "turns": 8,
+    "costMicros": 3811250,
+    "infraMicros": 751,
+    "listTokenMicros": 715000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 228,
+   "t": 98300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 57,
+    "vmSeconds": 57,
+    "tokensIn": 108000,
+    "tokensOut": 14150,
+    "turns": 8,
+    "costMicros": 3821250,
+    "infraMicros": 758,
+    "listTokenMicros": 715000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 229,
+   "t": 98800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 57.5,
+    "vmSeconds": 57.5,
+    "tokensIn": 108000,
+    "tokensOut": 14150,
+    "turns": 8,
+    "costMicros": 3831250,
+    "infraMicros": 765,
+    "listTokenMicros": 715000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 230,
+   "t": 99300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 58,
+    "vmSeconds": 58,
+    "tokensIn": 108000,
+    "tokensOut": 14150,
+    "turns": 8,
+    "costMicros": 3841250,
+    "infraMicros": 771,
+    "listTokenMicros": 715000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 231,
+   "t": 99800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 58.5,
+    "vmSeconds": 58.5,
+    "tokensIn": 108000,
+    "tokensOut": 14150,
+    "turns": 8,
+    "costMicros": 3851250,
+    "infraMicros": 778,
+    "listTokenMicros": 715000,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 232,
+   "t": 100100,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.turn",
+   "data": {
+    "turn": 9,
+    "tokensIn": 22650,
+    "tokensOut": 1990,
+    "stopReason": "tool_use",
+    "ms": 5300,
+    "estimated": false,
+    "model": "claude-opus-5.5",
+    "estIn": 22922
+   }
+  },
+  {
+   "seq": 233,
+   "t": 100300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 59,
+    "vmSeconds": 59,
+    "tokensIn": 130650,
+    "tokensOut": 16140,
+    "turns": 9,
+    "costMicros": 4350250,
+    "infraMicros": 785,
+    "listTokenMicros": 845400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 234,
+   "t": 100450,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "agent.tool",
+   "data": {
+    "command": "bash /work/check.sh",
+    "exit": 1,
+    "tail": "FAIL ex1 23.4 ms > 0.5 ms",
+    "ms": 440
+   }
+  },
+  {
+   "seq": 235,
+   "t": 100800,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "meter.tick",
+   "data": {
+    "workSec": 59.5,
+    "vmSeconds": 59.5,
+    "tokensIn": 130650,
+    "tokensOut": 16140,
+    "turns": 9,
+    "costMicros": 4360250,
+    "infraMicros": 791,
+    "listTokenMicros": 845400,
+    "estimatedTokens": false
+   }
+  },
+  {
+   "seq": 236,
+   "t": 101000,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "check.result",
+   "data": {
+    "pass": false,
+    "log": "FAIL 23.4 ms > 0.5 ms",
+    "cases": [
+     {
+      "name": "case 1",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.4
+     },
+     {
+      "name": "case 2",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.4
+     },
+     {
+      "name": "case 3",
+      "pass": false,
+      "rc": 0,
+      "ms": 23.4
+     }
+    ]
+   }
+  },
+  {
+   "seq": 237,
+   "t": 101300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "fuse.tripped",
+   "data": {
+    "reason": "reservation",
+    "meter": {
+     "workSec": 60,
+     "vmSeconds": 60,
+     "tokensIn": 130650,
+     "tokensOut": 16140,
+     "turns": 9,
+     "costMicros": 4370250,
+     "infraMicros": 798,
+     "listTokenMicros": 845400,
+     "estimatedTokens": false
+    },
+    "nextStepMicros": 890000,
+    "estIn": 25520,
+    "maxOut": 4096
+   }
+  },
+  {
+   "seq": 238,
+   "t": 101300,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "lane.state",
+   "data": {
+    "state": "tripped"
+   }
+  },
+  {
+   "seq": 239,
+   "t": 101350,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "vm.destroying",
+   "data": {
+    "sandboxId": "sb-synthetic-7f3a"
+   }
+  },
+  {
+   "seq": 240,
+   "t": 101750,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "lane.state",
+   "data": {
+    "state": "settling"
+   }
+  },
+  {
+   "seq": 241,
+   "t": 101820,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "settle.captured",
+   "data": {
+    "piId": "pi_synthetic_B",
+    "capturedCents": 437,
+    "releasedCents": 63,
+    "status": "succeeded",
+    "receiptSha256": "4b7d19f83212cb8f0754254b559b51a228ba3b7206545c8bd6c967cb5326c80a"
+   }
+  },
+  {
+   "seq": 242,
+   "t": 101840,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "lane.state",
+   "data": {
+    "state": "settled"
+   }
+  },
+  {
+   "seq": 243,
+   "t": 102750,
+   "runId": "synth001",
+   "laneId": "B",
+   "type": "vm.destroyed",
+   "data": {
+    "sandboxId": "sb-synthetic-7f3a",
+    "ms": 1400,
+    "ok": true
+   }
+  },
+  {
+   "seq": 244,
+   "t": 102800,
+   "runId": "synth001",
+   "type": "vm.count",
+   "data": {
+    "running": 0
+   }
+  },
+  {
+   "seq": 245,
+   "t": 103300,
+   "runId": "synth001",
+   "type": "run.finished",
+   "data": {}
+  }
+ ]
+}

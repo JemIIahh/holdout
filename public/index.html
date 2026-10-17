@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-theme="black">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Holdout</title>
+<meta name="description" content="A paid coding agent runs in a sealed microVM against a Stripe authorization hold. A fuse destroys the VM at the cap, and only what was used is captured.">
+<link rel="icon" href="data:,">
+<script>
+(function () {
+  var th = "black";
+  try { var q = new URLSearchParams(location.search).get("theme"); if (q === "white" || q === "black") th = q; else { var s = localStorage.getItem("holdout-theme"); if (s === "white" || s === "black") th = s; } } catch (e) { /* storage may throw */ }
+  document.documentElement.setAttribute("data-theme", th);
+})();
+</script>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<a class="skip" href="#stage">Skip to the stage</a>
+<header class="nav">
+  <a class="brand" href="./index.html" aria-label="Holdout">
+    <svg class="mark" viewBox="0 0 30 30" width="28" height="28" aria-hidden="true"><rect x="2" y="7" width="13" height="16" rx="4" fill="currentColor"/><rect x="17.5" y="7.75" width="10" height="14.5" rx="3.4" fill="none" stroke="var(--ink3)" stroke-width="1.6"/></svg>
+    <span class="word">Holdout</span>
+  </a>
+  <div class="navr">
+    <span class="pill src" id="srcBadge" data-pop="run"><i class="dot"></i><span id="srcText">LOADING</span></span>
+    <span class="pill" id="stripeBadge" data-pop="rates">STRIPE SANDBOX</span>
+    <span class="pill dashed" id="runLabel" hidden></span>
+    <div class="theme" role="group" aria-label="Theme">
+      <button type="button" id="thBlack" aria-pressed="true">Black</button>
+      <button type="button" id="thWhite" aria-pressed="false">White</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="stagewrap">
+    <div class="stage" id="stage" tabindex="-1">
+      <div class="strip">
+        <ul class="legend" aria-label="Colour key">
+          <li><i class="sq warn"></i>Metered</li>
+          <li><i class="sq ok"></i>Captured</li>
+          <li><i class="sq bad"></i>Tripped</li>
+        </ul>
+        <div class="banner" id="banner" role="status" hidden><i class="dot bad"></i><span id="bannerText"></span></div>
+        <div class="strip-r">
+          <span class="whatif-badge" id="whatifBadge" hidden>WHAT-IF</span>
+          <span class="vmcount" id="vmCount" data-pop="count" tabindex="0" aria-label="Running microVMs"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 2.8 20 7.4v9.2l-8 4.6-8-4.6V7.4z M4 7.4l8 4.6 8-4.6 M12 12v9.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><b id="vmCountN">0</b></span>
+        </div>
+      </div>
+      <div class="lanes" id="lanes"></div>
+      <div class="empty" id="empty" hidden><b>No recorded run yet</b></div>
+      <div class="veil" id="veil" hidden>
+        <button type="button" class="btn ghost" id="again"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 4v4.5h4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Play again</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="notary-root" hidden></div>
+
+  <nav class="dock" id="dock" aria-label="Playback">
+    <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Playback position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="scrub-fill" id="scrubFill"></div><div class="scrub-marks" id="scrubMarks"></div><div class="scrub-knob" id="scrubKnob"></div>
+    </div>
+    <div class="dockrow">
+      <button type="button" class="play" id="play" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5.2v13.6L19 12z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 5h3.6v14H7zM13.4 5H17v14h-3.6z" fill="currentColor"/></svg></button>
+      <div class="stages" id="stages" role="group" aria-label="Stages">
+        <button type="button" data-stage="0"><i></i><span>Hold</span></button>
+        <button type="button" data-stage="1"><i></i><span>Work</span></button>
+        <button type="button" data-stage="2"><i></i><span>Fuse</span></button>
+        <button type="button" data-stage="3"><i></i><span>Settle</span></button>
+        <button type="button" data-stage="verify" hidden><i></i><span>Verify</span></button>
+      </div>
+      <div class="clock" id="clock"><b id="clockNow">0:00</b><span class="dim"> / <span id="clockEnd">0:00</span></span></div>
+      <div class="speed" id="speed" role="group" aria-label="Speed">
+        <button type="button" data-speed="0.5">0.5×</button><button type="button" data-speed="1" aria-pressed="true">1×</button><button type="button" data-speed="2">2×</button><button type="button" data-speed="4">4×</button>
+      </div>
+      <button type="button" class="speed1" id="speed1" aria-label="Speed"><b>1×</b></button>
+      <button type="button" class="btn ghost whatif-btn" id="btnWhatif" aria-expanded="false" aria-controls="whatif"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9M13 4.5v5M7 14.5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>What if</span></button>
+      <div class="armed" id="armed" hidden><i class="led"></i><span id="armedText">ARMED</span><kbd>Space</kbd></div>
+      <button type="button" class="btn ghost" id="btnTrip" hidden>Trip</button>
+      <button type="button" class="btn runbtn" id="btnRun" hidden><span>Run</span><svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg></button>
+    </div>
+  </nav>
+
+  <section class="whatif" id="whatif" hidden aria-label="What if">
+    <div class="wf-dial"><label for="wfHold">Hold</label><output id="wfHoldV">$5.00</output><input type="range" id="wfHold" min="1" max="10" step="0.5" value="5"><div class="wf-ticks"><span>$1</span><span class="rec" id="wfHoldRec">recorded</span><span>$10</span></div></div>
+    <div class="wf-dial"><label for="wfCap">Time cap</label><output id="wfCapV">2:00</output><input type="range" id="wfCap" min="30" max="180" step="15" value="120"><div class="wf-ticks"><span>0:30</span><span class="rec" id="wfCapRec">recorded</span><span>3:00</span></div></div>
+    <div class="wf-dial"><label for="wfRate">Rates</label><output id="wfRateV">1.00×</output><input type="range" id="wfRate" min="0.5" max="2" step="0.25" value="1"><div class="wf-ticks"><span>0.5×</span><span class="rec" id="wfRateRec">recorded</span><span>2×</span></div></div>
+    <div class="wf-side"><span class="wf-note">recomputed · nothing re-run</span><button type="button" class="btn ghost" id="wfBack">Back to the recorded settings</button></div>
+  </section>
+
+  <footer class="foot">
+    <span class="foot-l" id="footL">Never pay more than the hold.</span>
+    <span class="foot-r"><button type="button" class="linkish" id="footRates" data-pop="rates">Posted demo rates</button>, not list prices · <span id="footStripe">Stripe sandbox</span> · authorization hold</span>
+  </footer>
+</main>
+
+<div id="pop" class="pop" role="tooltip" hidden></div>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

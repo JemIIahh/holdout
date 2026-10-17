@@ -261,7 +261,7 @@ async function provision(ctx: RunCtx, l: LaneCtx): Promise<{ vm: VmHandle; seal:
     if (deps.cfg.vmMode === "reuse") {
       res = await deps.vmApi.connect(deps.cfg.devVmId);
     } else {
-      const name = `hx-${run.runId.slice(0, 4)}-${laneId}-${rand4()}`;
+      const name = `hx-${run.runId.slice(0, 4)}-${laneId.toLowerCase()}-${rand4()}`;   // CreateOS: lowercase only
       ctx.emit("vm.creating", laneId, { name, attempt: 1 });
       res = await deps.vmApi.createSealed(name);
       ctx.emit("vm.created", laneId, { sandboxId: res.vm.id, createMs: res.seal.createMs });

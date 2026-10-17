@@ -150,7 +150,7 @@ test("Free-serial fresh: holds first, A captured, reset hands the VM to B, B tri
 
   const creates = log.filter((x) => x.startsWith("create "));
   assert.equal(creates.length, 1, "one sealed VM per run");
-  assert.match(creates[0], new RegExp(`^create hx-${runId.slice(0, 4)}-A-[0-9a-f]{4}$`));
+  assert.match(creates[0], new RegExp(`^create hx-${runId.slice(0, 4)}-a-[0-9a-f]{4}$`));
   assert.ok(log.indexOf("create " + creates[0].slice(7)) > log.lastIndexOf(`hold hx:${runId}:B`), "both holds before the create");
 
   const a = of(bus, "settle.captured", "A")[0].data as { capturedCents: number; status: string; receiptSha256: string };

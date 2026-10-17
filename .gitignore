@@ -37,3 +37,4 @@ AGENTS.md
 
 # macOS.
 .DS_Store
+.createos.json

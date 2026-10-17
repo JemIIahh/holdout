@@ -1,0 +1,73 @@
+{
+  "version": 4,
+  "project": {
+    "catalog": "prod",
+    "initializedAt": "2026-10-17T23:21:46.147Z",
+    "merchantDisplayName": null,
+    "merchantId": "acct_1URdITQ4vfpdXOAJ",
+    "projectId": "project_61Vb4sUfsucD8bunN16Vb1Fp6fE9OUap3lyF1zReSMfg",
+    "projectName": "holdout"
+  },
+  "providers": {
+    "createos": {
+      "accountRequestId": "facctrq_61Vb4tyBhOBAySXDV16Vb1Fp6fE9OUap3lyF1zReSLQ0",
+      "configuration": {},
+      "linkedAt": "2026-10-17T23:23:19.758Z",
+      "providerId": "prvdr_61V0eGC6sUPXoATb051se",
+      "providerName": "createos",
+      "redirectUrl": null,
+      "requestedAt": "2026-10-17T23:23:19.758Z",
+      "status": "complete"
+    }
+  },
+  "resources": {
+    "createos-plan": {
+      "configuration": {},
+      "createdAt": "2026-10-17T23:23:21.049Z",
+      "lastRevealedAt": "2026-10-17T23:23:21.867Z",
+      "lastStatus": "complete",
+      "livemode": true,
+      "name": "createos-plan",
+      "providerId": "prvdr_61V0eGC6sUPXoATb051se",
+      "providerName": "createos",
+      "resourceId": "fres_61Vb4u0sueyWwpfY216Vb1Fp6fE9OUap3lyF1zReSQae",
+      "serviceId": "free"
+    },
+    "createos-plan-2": {
+      "configuration": {},
+      "createdAt": "2026-10-17T23:23:53.005Z",
+      "lastRevealedAt": "2026-10-17T23:23:53.828Z",
+      "lastStatus": "complete",
+      "livemode": true,
+      "name": "createos-plan-2",
+      "providerId": "prvdr_61V0eGC6sUPXoATb051se",
+      "providerName": "createos",
+      "resourceId": "fres_61Vb4uWtaJCyt8rem16Vb1Fp6fE9OUap3lyF1zReSIyO",
+      "serviceId": "free"
+    },
+    "createos-project": {
+      "configuration": {},
+      "createdAt": "2026-10-17T23:23:24.448Z",
+      "lastRevealedAt": "2026-10-17T23:23:25.301Z",
+      "lastStatus": "complete",
+      "livemode": true,
+      "name": "createos-project",
+      "providerId": "prvdr_61V0eGC6sUPXoATb051se",
+      "providerName": "createos",
+      "resourceId": "fres_61Vb4u3XY67TVg7D016Vb1Fp6fE9OUap3lyF1zReSC4O",
+      "serviceId": "project"
+    },
+    "createos-project-2": {
+      "configuration": {},
+      "createdAt": "2026-10-17T23:24:05.138Z",
+      "lastRevealedAt": "2026-10-17T23:24:05.950Z",
+      "lastStatus": "complete",
+      "livemode": true,
+      "name": "createos-project-2",
+      "providerId": "prvdr_61V0eGC6sUPXoATb051se",
+      "providerName": "createos",
+      "resourceId": "fres_61Vb4uioMdkUvx5AX16Vb1Fp6fE9OUap3lyF1zReSOro",
+      "serviceId": "project"
+    }
+  }
+}

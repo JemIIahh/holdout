@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "providers": {
+    "createos": {
+      "name": "createos"
+    }
+  },
+  "resources": {
+    "createos-plan": {
+      "livemode": true,
+      "name": "createos-plan",
+      "providerName": "createos",
+      "serviceId": "free"
+    },
+    "createos-plan-2": {
+      "livemode": true,
+      "name": "createos-plan-2",
+      "providerName": "createos",
+      "serviceId": "free"
+    },
+    "createos-project": {
+      "livemode": true,
+      "name": "createos-project",
+      "providerName": "createos",
+      "serviceId": "project"
+    },
+    "createos-project-2": {
+      "livemode": true,
+      "name": "createos-project-2",
+      "providerName": "createos",
+      "serviceId": "project"
+    }
+  }
+}

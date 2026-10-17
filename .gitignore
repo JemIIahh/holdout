@@ -2,20 +2,14 @@
 # Source: DESIGN.md section 7.6, plus the agent files (DESIGN C18). Comments must sit on their own lines.
 
 # Secrets. .env belongs to Stripe Projects (stripe projects env --pull); app secrets live in .env.local.
-.env
-.env.local
 # Any other .env.* file holds secrets too: createos env pull writes .env.<environment> by default.
 # .env.example is the one exception and is committed (names only, no values).
-.env.*
-!.env.example
 
 # Run data: the create ledger (data/creates.json), dev VM id (data/devvm.json), run logs.
 data/
 
 # Stripe Projects: .projects/state.json and .projects/state.local.json ARE committed (the leaderboard's
 # repo check reads them); the vault and the cache never are.
-.projects/vault/
-.projects/cache/
 
 # Dependencies and build output.
 node_modules/
@@ -38,3 +32,11 @@ AGENTS.md
 # macOS.
 .DS_Store
 .createos.json
+
+.projects/cache
+.projects/vault
+.projects/state.test.json
+.projects/state.local.test.json
+.env
+.env.*
+!.env.example

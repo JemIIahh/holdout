@@ -3,7 +3,7 @@
 import { whatIf } from "./whatif.js";
 
 export const STRIPE_BADGE = "STRIPE SANDBOX";   // one constant: the dashboard's own banner says Sandbox (SMOKE-TESTS 17:32 WAT)
-const PI_LINK = (id) => `https://dashboard.stripe.com/test/payments/${id}`;   // [untested] Main sets the real format at P7
+const PI_LINK = (id) => `https://dashboard.stripe.com/test/payments/${id}`;   // PI_URL from decisions.env (D14)
 const SEAL_CAPTION = "Outbound connections to public addresses, and DNS lookups, failed under the host firewall in our probe (rule read back on screen). The link-local metadata address 169.254.169.254 still answered, so no key ever enters the VM, the model runs on our server, and every agent command runs inside an empty network namespace.";
 const REASONS = { reservation: "next step would exceed your limit", cost_cap: "cost cap", time_cap: "time cap", manual: "manual fuse" };
 const CANCELS = { under_minimum: "under the $0.50 card minimum", not_run: "lane not run", no_delivery: "no delivery", infra_error: "infrastructure error", no_artifact: "no artifact", verdict_fail: "verdict failed" };

@@ -1,0 +1,22 @@
+{
+  "name": "holdout",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "echo no-build-step",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "stripe": "23.0.0",
+    "@anthropic-ai/sdk": "0.129.0",
+    "@nodeops-createos/sandbox": "0.8.2",
+    "tsx": "4.23.15"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "22"
+  }
+}
